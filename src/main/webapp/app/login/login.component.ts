@@ -23,7 +23,12 @@ export default class LoginComponent implements OnInit, AfterViewInit {
     password: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     rememberMe: new FormControl(false, { nonNullable: true, validators: [Validators.required] }),
   });
+  // Add to component class
+  showPassword = false;
 
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
   private accountService = inject(AccountService);
   private loginService = inject(LoginService);
   private router = inject(Router);

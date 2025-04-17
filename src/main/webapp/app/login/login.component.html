@@ -1,58 +1,140 @@
-<div>
-  <div class="d-flex justify-content-center">
-    <div class="col-lg-6 col-md-8 col-sm-10">
-      <h1 jhiTranslate="login.title" data-cy="loginTitle">Sign in</h1>
-      @if (authenticationError()) {
-        <div class="alert alert-danger" jhiTranslate="login.messages.error.authentication" data-cy="loginError">
-          <strong>Failed to sign in!</strong> Please check your credentials and try again.
-        </div>
-      }
-      <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
-        <div class="mb-3">
-          <label class="username-label" for="username" jhiTranslate="global.form.username.label">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-            id="username"
-            placeholder="{{ 'global.form.username.placeholder' | translate }}"
-            formControlName="username"
-            #username
-            data-cy="username"
-          />
-        </div>
+<div class="min-vh-100 bg-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-xl-5">
+        <!-- Login Card -->
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-5">
+            <!-- Header Section -->
+            <div class="text-center mb-5">
+              <h1 class="h2 fw-bold mb-3" jhiTranslate="login.title" data-cy="loginTitle">Welcome Back</h1>
+              <p class="text-muted">Sign in to continue</p>
+            </div>
 
-        <div class="mb-3">
-          <label for="password" jhiTranslate="login.form.password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            id="password"
-            placeholder="{{ 'login.form.password.placeholder' | translate }}"
-            formControlName="password"
-            data-cy="password"
-          />
+            <!-- Error Message -->
+            @if (authenticationError()) {
+              <div class="alert alert-danger d-flex align-items-center mb-4" role="alert" data-cy="loginError">
+                <i class="bi bi-exclamation-octagon-fill me-2"></i>
+                <div jhiTranslate="login.messages.error.authentication">
+                  <strong>Failed to sign in!</strong> Please check your credentials and try again.
+                </div>
+              </div>
+            }
+
+            <!-- Login Form -->
+            <form class="needs-validation" role="form" (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+              <!-- Username Input -->
+              <div class="mb-4">
+                <label for="username" class="form-label" jhiTranslate="global.form.username.label">Username</label>
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="bi bi-person-fill"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg rounded-2"
+                    id="username"
+                    formControlName="username"
+                    placeholder="Enter your username"
+                    [class.is-invalid]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"
+                    data-cy="username"
+                    #username
+                  />
+                </div>
+                <div class="invalid-feedback" *ngIf="loginForm.get('username')?.errors?.required">Username is required</div>
+              </div>
+
+              <!-- Password Input -->
+              <div class="mb-4">
+                <label for="password" class="form-label" jhiTranslate="login.form.password">Password</label>
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="bi bi-lock-fill"></i>
+                  </span>
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control form-control-lg rounded-2"
+                    id="password"
+                    formControlName="password"
+                    placeholder="Enter your password"
+                    [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                    data-cy="password"
+                  />
+                  <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                    @if (this.showPassword) {
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-eye-slash"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"
+                        />
+                        <path
+                          d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"
+                        />
+                        <path
+                          d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"
+                        />
+                      </svg>
+                    } @else {
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-eye-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+                      </svg>
+                    }
+                  </button>
+                </div>
+                <div class="invalid-feedback" *ngIf="loginForm.get('password')?.errors?.required">Password is required</div>
+              </div>
+
+              <!-- Remember Me & Forgot Password -->
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe" formControlName="rememberMe" />
+                  <label class="form-check-label" for="rememberMe" jhiTranslate="login.form.rememberme"> Remember me </label>
+                </div>
+                <a
+                  class="text-decoration-none"
+                  routerLink="/account/reset/request"
+                  data-cy="forgetYourPasswordSelector"
+                  jhiTranslate="login.password.forgot"
+                >
+                  Forgot password?
+                </a>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 rounded-pill py-3"
+                [disabled]="loginForm.invalid"
+                data-cy="submit"
+                jhiTranslate="login.form.button"
+              >
+                Sign In
+              </button>
+            </form>
+
+            <!-- Registration Link -->
+            <div class="text-center mt-4">
+              <span class="text-muted" jhiTranslate="global.messages.info.register.noaccount"> Don't have an account? </span>
+              <a class="text-decoration-none fw-bold ms-2" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">
+                Sign up
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div class="form-check">
-          <label class="form-check-label" for="rememberMe">
-            <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe" />
-            <span jhiTranslate="login.form.rememberme">Remember me</span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-primary" jhiTranslate="login.form.button" data-cy="submit">Sign in</button>
-      </form>
-      <div class="mt-3 alert alert-warning">
-        <a class="alert-link" routerLink="/account/reset/request" jhiTranslate="login.password.forgot" data-cy="forgetYourPasswordSelector"
-          >Did you forget your password?</a
-        >
-      </div>
-
-      <div class="alert alert-warning">
-        <span jhiTranslate="global.messages.info.register.noaccount">You don&apos;t have an account yet?</span>
-        <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
       </div>
     </div>
   </div>

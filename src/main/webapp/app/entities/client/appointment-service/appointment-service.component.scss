@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$card-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+$border-radius: 12px;
+
+.container {
+  padding: 20px;
+}
+
+.appointment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.appointment-card {
+  max-width: 600px;
+  width: 100%;
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  &.cancelled {
+    opacity: 0.7;
+    background: #f8d7da;
+  }
+}
+
+.card-header {
+  background: $primary-color;
+  color: #fff;
+  border-radius: $border-radius $border-radius 0 0;
+  padding: 15px 20px;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+
+  &.booked {
+    background-color: $success-color;
+  }
+
+  &.cancelled {
+    background-color: $danger-color;
+  }
+}
+
+.card-body {
+  padding: 20px;
+
+  .hospital-info,
+  .appointment-info {
+    h5 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #343a40;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      color: #495057;
+
+      strong {
+        color: #212529;
+        font-weight: 500;
+      }
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.card-footer {
+  background: #f8f9fa;
+  border-radius: 0 0 $border-radius $border-radius;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+}
+
+// Animation styles (using animate.css)
+.animate__fadeIn {
+  animation-duration: 0.5s;
+}

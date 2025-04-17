@@ -89,7 +89,7 @@
             [compareWith]="compareServiceForCustomer"
           >
             @for (serviceForCustomerOption of serviceForCustomersSharedCollection; track $index) {
-              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.id }}</option>
+              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.name }}</option>
             }
           </select>
         </div>

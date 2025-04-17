@@ -1,0 +1,45 @@
+.multi-select-container {
+  position: relative;
+
+  .form-control {
+    cursor: pointer;
+    min-height: 38px;
+    padding: 0.375rem 0.75rem;
+
+    &:hover {
+      border-color: #86b7fe;
+    }
+
+    &.is-invalid {
+      border-color: #dc3545;
+    }
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    padding: 0;
+
+    .dropdown-item {
+      padding: 0.25rem 1rem;
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+
+  .bi-chevron-down {
+    transition: transform 0.2s;
+  }
+
+  .form-control:focus + .bi-chevron-down {
+    transform: rotate(180deg);
+  }
+}

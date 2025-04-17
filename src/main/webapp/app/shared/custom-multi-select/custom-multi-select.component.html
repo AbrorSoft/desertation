@@ -1,0 +1,53 @@
+<div class="multi-select-container">
+  <div
+    class="form-control d-flex align-items-center flex-wrap"
+    [class.is-invalid]="control?.invalid && (control?.dirty || control?.touched)"
+    (click)="toggleDropdown()"
+  >
+    <!-- Display selected items as tags -->
+    @if (selectedItems.length > 0) {
+      <ng-container>
+        @for (item of selectedItems; track $index) {
+          <span class="badge bg-primary me-1 mb-1">
+            {{ item.name }}
+            <button type="button" class="btn-close btn-close-white ms-1" (click)="removeItem(item); $event.stopPropagation()"></button>
+          </span>
+        }
+      </ng-container>
+    } @else {
+      placeholder
+    }
+    <ng-template #placeholder>
+      <span class="text-muted">Select services...</span>
+    </ng-template>
+    <span class="ms-auto">
+      <i class="bi bi-chevron-down"></i>
+    </span>
+  </div>
+
+  <!-- Dropdown menu -->
+
+  @if (isOpen) {
+    <div class="dropdown-menu show" style="max-height: 200px; overflow-y: auto">
+      @for (option of options; track $index) {
+        <div class="dropdown-item">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [checked]="isSelected(option)"
+              (change)="toggleSelection(option)"
+              [id]="'option-' + option.id"
+            />
+            <label class="form-check-label" [for]="'option-' + option.id">
+              {{ option.name }}
+            </label>
+          </div>
+        </div>
+      }
+      @if (options.length === 0) {
+        <div class="dropdown-item text-muted">No options available</div>
+      }
+    </div>
+  }
+</div>

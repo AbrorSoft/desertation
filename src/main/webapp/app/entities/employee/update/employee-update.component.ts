@@ -16,12 +16,13 @@ import { ServiceService } from 'app/entities/service/service/service.service';
 import { EmployeeService } from '../service/employee.service';
 import { IEmployee } from '../employee.model';
 import { EmployeeFormService, EmployeeFormGroup } from './employee-form.service';
+import { CustomMultiSelectComponent } from '../../../shared/custom-multi-select/custom-multi-select.component';
 
 @Component({
   standalone: true,
   selector: 'jhi-employee-update',
   templateUrl: './employee-update.component.html',
-  imports: [SharedModule, FormsModule, ReactiveFormsModule],
+  imports: [SharedModule, FormsModule, ReactiveFormsModule, CustomMultiSelectComponent],
 })
 export class EmployeeUpdateComponent implements OnInit {
   isSaving = false;

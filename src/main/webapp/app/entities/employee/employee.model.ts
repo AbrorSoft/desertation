@@ -7,7 +7,7 @@ export interface IEmployee {
   name?: string | null;
   specialization?: string | null;
   serviceProvider?: Pick<IServiceProvider, 'id' | 'name'> | null;
-  servicesForCustomers?: Pick<IServiceForCustomer, 'id'>[] | null;
+  servicesForCustomers?: Pick<IServiceForCustomer, 'id' | 'name'>[] | null;
   services?: Pick<IService, 'id'>[] | null;
 }
 
