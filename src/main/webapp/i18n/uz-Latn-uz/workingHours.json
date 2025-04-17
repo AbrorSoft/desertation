@@ -1,0 +1,27 @@
+{
+  "appointmentApp": {
+    "workingHours": {
+      "home": {
+        "title": "Working Hours",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi Working Hours qo`shish",
+        "createOrEditLabel": "Working Hoursni tahrirlash",
+        "notFound": "No Working Hours found"
+      },
+      "created": "Working Hours {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Working Hours saqlandi",
+      "deleted": "{{ param }}- Working Hours o`chirildi",
+      "delete": {
+        "question": "{{ id }}- Working Hoursni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Working Hours"
+      },
+      "id": "Id",
+      "dayOfWeek": "Day Of Week",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "employee": "Employee"
+    }
+  }
+}

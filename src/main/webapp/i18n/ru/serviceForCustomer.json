@@ -1,0 +1,28 @@
+{
+  "appointmentApp": {
+    "serviceForCustomer": {
+      "home": {
+        "title": "Service For Customers",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Service For Customer",
+        "createOrEditLabel": "Создать или отредактировать Service For Customer",
+        "notFound": "Service For Customers не найдено"
+      },
+      "created": "Новый Service For Customer создан с идентификатором {{ param }}",
+      "updated": "Service For Customer обновлен с идентификатором {{ param }}",
+      "deleted": "Service For Customer удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Service For Customer {{ id }}?"
+      },
+      "detail": {
+        "title": "Service For Customer"
+      },
+      "id": "Id",
+      "name": "Name",
+      "description": "Description",
+      "duration": "Duration",
+      "serviceProvider": "Service Provider",
+      "employees": "Employees"
+    }
+  }
+}

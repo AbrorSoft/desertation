@@ -1,0 +1,27 @@
+{
+  "appointmentApp": {
+    "serviceProvider": {
+      "home": {
+        "title": "Service Providers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Янги Service Provider қўшиш",
+        "createOrEditLabel": "Service Providerни таҳрирлаш",
+        "notFound": "No Service Providers found"
+      },
+      "created": "Service Provider {{ param }} билан қўшилди.",
+      "updated": "{{ param }}- Service Provider сақланди.",
+      "deleted": "{{ param }}- Service Provider ўчирилди.",
+      "delete": {
+        "question": "{{ id }}- Service Providerни ўчирмоқчимисиз? "
+      },
+      "detail": {
+        "title": "Service Provider"
+      },
+      "id": "Id",
+      "name": "Name",
+      "type": "Type",
+      "address": "Address",
+      "contactInfo": "Contact Info"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity ServiceForCustomer.
+    -->
+    <changeSet id="20250303072736-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="service_provider_id"
+                                 baseTableName="service_for_customer"
+                                 constraintName="fk_service_for_customer__service_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_provider"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_for_customer_id"
+                                 baseTableName="rel_service_for_customer__employees"
+                                 constraintName="fk_rel_service_for_customer__employees__service_for_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_for_customer"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="employees_id"
+                                 baseTableName="rel_service_for_customer__employees"
+                                 constraintName="fk_rel_service_for_customer__employees__employees_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+{
+  "appointmentApp": {
+    "serviceForCustomer": {
+      "home": {
+        "title": "Service For Customers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Янги Service For Customer қўшиш",
+        "createOrEditLabel": "Service For Customerни таҳрирлаш",
+        "notFound": "No Service For Customers found"
+      },
+      "created": "Service For Customer {{ param }} билан қўшилди.",
+      "updated": "{{ param }}- Service For Customer сақланди.",
+      "deleted": "{{ param }}- Service For Customer ўчирилди.",
+      "delete": {
+        "question": "{{ id }}- Service For Customerни ўчирмоқчимисиз? "
+      },
+      "detail": {
+        "title": "Service For Customer"
+      },
+      "id": "Id",
+      "name": "Name",
+      "description": "Description",
+      "duration": "Duration",
+      "serviceProvider": "Service Provider",
+      "employees": "Employees"
+    }
+  }
+}

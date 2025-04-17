@@ -1,0 +1,31 @@
+{
+  "appointmentApp": {
+    "appointment": {
+      "home": {
+        "title": "Appointments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Янги Appointment қўшиш",
+        "createOrEditLabel": "Appointmentни таҳрирлаш",
+        "notFound": "No Appointments found"
+      },
+      "created": "Appointment {{ param }} билан қўшилди.",
+      "updated": "{{ param }}- Appointment сақланди.",
+      "deleted": "{{ param }}- Appointment ўчирилди.",
+      "delete": {
+        "question": "{{ id }}- Appointmentни ўчирмоқчимисиз? "
+      },
+      "detail": {
+        "title": "Appointment"
+      },
+      "id": "Id",
+      "date": "Date",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "status": "Status",
+      "serviceProvider": "Service Provider",
+      "employee": "Employee",
+      "serviceForCustomer": "Service For Customer",
+      "room": "Room"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (appointment) {
+      <div>
+        <h2 data-cy="appointmentDetailsHeading"><span jhiTranslate="appointmentApp.appointment.detail.title">Appointment</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="appointmentApp.appointment.id">Id</span></dt>
+          <dd>
+            <span>{{ appointment.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.date">Date</span></dt>
+          <dd>
+            <span>{{ appointment.date | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.startTime">Start Time</span></dt>
+          <dd>
+            <span>{{ appointment.startTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.endTime">End Time</span></dt>
+          <dd>
+            <span>{{ appointment.endTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.status">Status</span></dt>
+          <dd>
+            <span jhiTranslate="{{ 'appointmentApp.AppointmentStatus.' + appointment.status }}">{{ appointment.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.serviceProvider">Service Provider</span></dt>
+          <dd>
+            @if (appointment.serviceProvider) {
+              <div>
+                <a [routerLink]="['/service-provider', appointment.serviceProvider.id, 'view']">{{ appointment.serviceProvider.name }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.employee">Employee</span></dt>
+          <dd>
+            @if (appointment.employee) {
+              <div>
+                <a [routerLink]="['/employee', appointment.employee.id, 'view']">{{ appointment.employee.name }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.serviceForCustomer">Service For Customer</span></dt>
+          <dd>
+            @if (appointment.serviceForCustomer) {
+              <div>
+                <a [routerLink]="['/service-for-customer', appointment.serviceForCustomer.id, 'view']">{{
+                  appointment.serviceForCustomer.name
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.appointment.room">Room</span></dt>
+          <dd>
+            @if (appointment.room) {
+              <div>
+                <a [routerLink]="['/room', appointment.room.id, 'view']">{{ appointment.room.roomNumber }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/appointment', appointment.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

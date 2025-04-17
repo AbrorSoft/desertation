@@ -1,0 +1,27 @@
+{
+  "appointmentApp": {
+    "workingHours": {
+      "home": {
+        "title": "Working Hours",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Янги Working Hours қўшиш",
+        "createOrEditLabel": "Working Hoursни таҳрирлаш",
+        "notFound": "No Working Hours found"
+      },
+      "created": "Working Hours {{ param }} билан қўшилди.",
+      "updated": "{{ param }}- Working Hours сақланди.",
+      "deleted": "{{ param }}- Working Hours ўчирилди.",
+      "delete": {
+        "question": "{{ id }}- Working Hoursни ўчирмоқчимисиз? "
+      },
+      "detail": {
+        "title": "Working Hours"
+      },
+      "id": "Id",
+      "dayOfWeek": "Day Of Week",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "employee": "Employee"
+    }
+  }
+}

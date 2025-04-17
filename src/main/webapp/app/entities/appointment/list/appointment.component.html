@@ -1,0 +1,185 @@
+<div>
+  <h2 id="page-heading" data-cy="AppointmentHeading">
+    <span jhiTranslate="appointmentApp.appointment.home.title">Appointments</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="appointmentApp.appointment.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-appointment"
+        [routerLink]="['/appointment/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="appointmentApp.appointment.home.createLabel">Create a new Appointment</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  @if (appointments?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="appointmentApp.appointment.home.notFound">No Appointments found</span>
+    </div>
+  }
+
+  @if (appointments && appointments.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="startTime">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.startTime">Start Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="endTime">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.endTime">End Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="serviceProvider.name">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.serviceProvider">Service Provider</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="employee.name">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.employee">Employee</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="serviceForCustomer.name">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.serviceForCustomer">Service For Customer</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="room.roomNumber">
+              <div class="d-flex">
+                <span jhiTranslate="appointmentApp.appointment.room">Room</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (appointment of appointments; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/appointment', appointment.id, 'view']">{{ appointment.id }}</a>
+              </td>
+              <td>{{ appointment.date | formatMediumDate }}</td>
+              <td>{{ appointment.startTime | formatMediumDatetime }}</td>
+              <td>{{ appointment.endTime | formatMediumDatetime }}</td>
+              <td jhiTranslate="{{ 'appointmentApp.AppointmentStatus.' + appointment.status }}">{{ appointment.status }}</td>
+              <td>
+                @if (appointment.serviceProvider) {
+                  <div>
+                    <a [routerLink]="['/service-provider', appointment.serviceProvider.id, 'view']">{{ appointment.serviceProvider.name }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (appointment.employee) {
+                  <div>
+                    <a [routerLink]="['/employee', appointment.employee.id, 'view']">{{ appointment.employee.name }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (appointment.serviceForCustomer) {
+                  <div>
+                    <a [routerLink]="['/service-for-customer', appointment.serviceForCustomer.id, 'view']">{{
+                      appointment.serviceForCustomer.name
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (appointment.room) {
+                  <div>
+                    <a [routerLink]="['/room', appointment.room.id, 'view']">{{ appointment.room.roomNumber }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/appointment', appointment.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/appointment', appointment.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(appointment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (appointments && appointments.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

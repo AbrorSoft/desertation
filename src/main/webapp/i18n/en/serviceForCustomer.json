@@ -1,0 +1,28 @@
+{
+  "appointmentApp": {
+    "serviceForCustomer": {
+      "home": {
+        "title": "Service For Customers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service For Customer",
+        "createOrEditLabel": "Create or edit a Service For Customer",
+        "notFound": "No Service For Customers found"
+      },
+      "created": "A new Service For Customer is created with identifier {{ param }}",
+      "updated": "A Service For Customer is updated with identifier {{ param }}",
+      "deleted": "A Service For Customer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service For Customer {{ id }}?"
+      },
+      "detail": {
+        "title": "Service For Customer"
+      },
+      "id": "Id",
+      "name": "Name",
+      "description": "Description",
+      "duration": "Duration",
+      "serviceProvider": "Service Provider",
+      "employees": "Employees"
+    }
+  }
+}

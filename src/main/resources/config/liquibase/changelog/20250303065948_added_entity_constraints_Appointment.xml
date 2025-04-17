@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Appointment.
+    -->
+    <changeSet id="20250303065948-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="service_provider_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment__service_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_provider"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment__employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_for_customer_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment__service_for_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_for_customer"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="room_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment__room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="room"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+        />
+    </changeSet>
+</databaseChangeLog>

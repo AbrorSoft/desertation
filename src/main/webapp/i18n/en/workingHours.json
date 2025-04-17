@@ -1,0 +1,27 @@
+{
+  "appointmentApp": {
+    "workingHours": {
+      "home": {
+        "title": "Working Hours",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Working Hours",
+        "createOrEditLabel": "Create or edit a Working Hours",
+        "notFound": "No Working Hours found"
+      },
+      "created": "A new Working Hours is created with identifier {{ param }}",
+      "updated": "A Working Hours is updated with identifier {{ param }}",
+      "deleted": "A Working Hours is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Working Hours {{ id }}?"
+      },
+      "detail": {
+        "title": "Working Hours"
+      },
+      "id": "Id",
+      "dayOfWeek": "Day Of Week",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "employee": "Employee"
+    }
+  }
+}

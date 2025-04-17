@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (room) {
+      <div>
+        <h2 data-cy="roomDetailsHeading"><span jhiTranslate="appointmentApp.room.detail.title">Room</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="appointmentApp.room.id">Id</span></dt>
+          <dd>
+            <span>{{ room.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.room.roomNumber">Room Number</span></dt>
+          <dd>
+            <span>{{ room.roomNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.room.description">Description</span></dt>
+          <dd>
+            <span>{{ room.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.room.serviceProvider">Service Provider</span></dt>
+          <dd>
+            @if (room.serviceProvider) {
+              <div>
+                <a [routerLink]="['/service-provider', room.serviceProvider.id, 'view']">{{ room.serviceProvider.name }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/room', room.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

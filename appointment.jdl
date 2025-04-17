@@ -1,0 +1,89 @@
+enum ServiceProviderType {
+    BARBERSHOP,
+    SALON,
+    SPA,
+    GYM,
+    CLINIC
+}
+
+enum DayOfWeek {
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY
+}
+
+enum AppointmentStatus {
+    BOOKED,
+    COMPLETED,
+    CANCELLED
+}
+
+entity ServiceProvider {
+    id Long
+    name String maxlength(255) required
+    type ServiceProviderType required
+    address String
+    contactInfo String
+}
+
+entity Employee {
+    id Long
+    name String maxlength(255) required
+    specialization String maxlength(255) required
+}
+
+entity Room {
+    id Long
+    roomNumber String maxlength(255) required
+    description String
+}
+
+entity ServiceForCustomer {
+    id Long
+    name String maxlength(255) required
+    description String
+    duration Integer required
+}
+
+entity WorkingHours {
+    id Long
+    dayOfWeek DayOfWeek required
+    startTime Instant required
+    endTime Instant required
+}
+
+entity Appointment {
+    id Long
+    date LocalDate required
+    startTime Instant required
+    endTime Instant required
+    status AppointmentStatus required
+}
+
+relationship ManyToOne {
+    Employee{serviceProvider} to ServiceProvider
+
+    Room{serviceProvider} to ServiceProvider
+
+    ServiceForCustomer{serviceProvider} to ServiceProvider
+
+    WorkingHours{employee} to Employee
+
+    Appointment{serviceProvider} to ServiceProvider
+    Appointment{employee} to Employee
+    Appointment{serviceForCustomer} to ServiceForCustomer
+    Appointment{room} to Room
+}
+
+relationship ManyToMany {
+    ServiceForCustomer{employees} to Employee{servicesForCustomer}
+}
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
+filter *

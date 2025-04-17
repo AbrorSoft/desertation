@@ -1,0 +1,12 @@
+{
+  "appointmentApp": {
+    "ServiceProviderType": {
+      "null": "",
+      "BARBERSHOP": "BARBERSHOP",
+      "SALON": "SALON",
+      "SPA": "SPA",
+      "GYM": "GYM",
+      "CLINIC": "CLINIC"
+    }
+  }
+}

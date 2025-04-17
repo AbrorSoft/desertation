@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (workingHours) {
+      <div>
+        <h2 data-cy="workingHoursDetailsHeading"><span jhiTranslate="appointmentApp.workingHours.detail.title">Working Hours</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="appointmentApp.workingHours.id">Id</span></dt>
+          <dd>
+            <span>{{ workingHours.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.workingHours.dayOfWeek">Day Of Week</span></dt>
+          <dd>
+            <span jhiTranslate="{{ 'appointmentApp.DayOfWeek.' + workingHours.dayOfWeek }}">{{ workingHours.dayOfWeek }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.workingHours.startTime">Start Time</span></dt>
+          <dd>
+            <span>{{ workingHours.startTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.workingHours.endTime">End Time</span></dt>
+          <dd>
+            <span>{{ workingHours.endTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.workingHours.employee">Employee</span></dt>
+          <dd>
+            @if (workingHours.employee) {
+              <div>
+                <a [routerLink]="['/employee', workingHours.employee.id, 'view']">{{ workingHours.employee.name }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/working-hours', workingHours.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

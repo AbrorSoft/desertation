@@ -1,0 +1,31 @@
+{
+  "appointmentApp": {
+    "appointment": {
+      "home": {
+        "title": "Appointments",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Appointment",
+        "createOrEditLabel": "Создать или отредактировать Appointment",
+        "notFound": "Appointments не найдено"
+      },
+      "created": "Новый Appointment создан с идентификатором {{ param }}",
+      "updated": "Appointment обновлен с идентификатором {{ param }}",
+      "deleted": "Appointment удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Appointment {{ id }}?"
+      },
+      "detail": {
+        "title": "Appointment"
+      },
+      "id": "Id",
+      "date": "Date",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "status": "Status",
+      "serviceProvider": "Service Provider",
+      "employee": "Employee",
+      "serviceForCustomer": "Service For Customer",
+      "room": "Room"
+    }
+  }
+}

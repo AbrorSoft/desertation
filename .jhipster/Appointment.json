@@ -1,0 +1,65 @@
+{
+  "annotations": {
+    "changelogDate": "20250303065948"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AppointmentStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "BOOKED,COMPLETED,CANCELLED"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Appointment",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "serviceProvider",
+      "relationshipName": "serviceProvider",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "employee",
+      "relationshipName": "employee",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceForCustomer",
+      "relationshipName": "serviceForCustomer",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "room",
+      "relationshipName": "room",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

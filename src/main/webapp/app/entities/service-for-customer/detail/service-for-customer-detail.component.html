@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (serviceForCustomer) {
+      <div>
+        <h2 data-cy="serviceForCustomerDetailsHeading">
+          <span jhiTranslate="appointmentApp.serviceForCustomer.detail.title">Service For Customer</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="appointmentApp.serviceForCustomer.id">Id</span></dt>
+          <dd>
+            <span>{{ serviceForCustomer.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.serviceForCustomer.name">Name</span></dt>
+          <dd>
+            <span>{{ serviceForCustomer.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.serviceForCustomer.description">Description</span></dt>
+          <dd>
+            <span>{{ serviceForCustomer.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.serviceForCustomer.duration">Duration</span></dt>
+          <dd>
+            <span>{{ serviceForCustomer.duration }}</span>
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.serviceForCustomer.serviceProvider">Service Provider</span></dt>
+          <dd>
+            @if (serviceForCustomer.serviceProvider) {
+              <div>
+                <a [routerLink]="['/service-provider', serviceForCustomer.serviceProvider.id, 'view']">{{
+                  serviceForCustomer.serviceProvider.name
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="appointmentApp.serviceForCustomer.employees">Employees</span></dt>
+          <dd>
+            @for (employees of serviceForCustomer.employees; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/employee', employees.id, 'view']">{{ employees.name }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/service-for-customer', serviceForCustomer.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

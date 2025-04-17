@@ -1,0 +1,28 @@
+{
+  "appointmentApp": {
+    "employee": {
+      "home": {
+        "title": "Employees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi Employee qo`shish",
+        "createOrEditLabel": "Employeeni tahrirlash",
+        "notFound": "No Employees found"
+      },
+      "created": "Employee {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Employee saqlandi",
+      "deleted": "{{ param }}- Employee o`chirildi",
+      "delete": {
+        "question": "{{ id }}- Employeeni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Employee"
+      },
+      "id": "Id",
+      "name": "Name",
+      "specialization": "Specialization",
+      "serviceProvider": "Service Provider",
+      "servicesForCustomer": "Services For Customer",
+      "services": "Services"
+    }
+  }
+}

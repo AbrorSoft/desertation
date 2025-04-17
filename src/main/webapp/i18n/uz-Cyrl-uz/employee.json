@@ -1,0 +1,28 @@
+{
+  "appointmentApp": {
+    "employee": {
+      "home": {
+        "title": "Employees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Янги Employee қўшиш",
+        "createOrEditLabel": "Employeeни таҳрирлаш",
+        "notFound": "No Employees found"
+      },
+      "created": "Employee {{ param }} билан қўшилди.",
+      "updated": "{{ param }}- Employee сақланди.",
+      "deleted": "{{ param }}- Employee ўчирилди.",
+      "delete": {
+        "question": "{{ id }}- Employeeни ўчирмоқчимисиз? "
+      },
+      "detail": {
+        "title": "Employee"
+      },
+      "id": "Id",
+      "name": "Name",
+      "specialization": "Specialization",
+      "serviceProvider": "Service Provider",
+      "servicesForCustomer": "Services For Customer",
+      "services": "Services"
+    }
+  }
+}

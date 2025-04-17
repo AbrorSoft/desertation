@@ -1,0 +1,130 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-working-hours-heading"
+        data-cy="WorkingHoursCreateUpdateHeading"
+        jhiTranslate="appointmentApp.workingHours.home.createOrEditLabel"
+      >
+        Create or edit a Working Hours
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="appointmentApp.workingHours.id" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.workingHours.dayOfWeek" for="field_dayOfWeek">Day Of Week</label>
+          <select class="form-control" name="dayOfWeek" formControlName="dayOfWeek" id="field_dayOfWeek" data-cy="dayOfWeek">
+            <option [ngValue]="null">{{ 'appointmentApp.DayOfWeek.null' | translate }}</option>
+            @for (dayOfWeek of dayOfWeekValues; track $index) {
+              <option [value]="dayOfWeek">{{ 'appointmentApp.DayOfWeek.' + dayOfWeek | translate }}</option>
+            }
+          </select>
+          @if (editForm.get('dayOfWeek')!.invalid && (editForm.get('dayOfWeek')!.dirty || editForm.get('dayOfWeek')!.touched)) {
+            <div>
+              @if (editForm.get('dayOfWeek')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.workingHours.startTime" for="field_startTime">Start Time</label>
+          <div class="d-flex">
+            <input
+              id="field_startTime"
+              data-cy="startTime"
+              type="datetime-local"
+              class="form-control"
+              name="startTime"
+              formControlName="startTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (editForm.get('startTime')!.invalid && (editForm.get('startTime')!.dirty || editForm.get('startTime')!.touched)) {
+            <div>
+              @if (editForm.get('startTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('startTime')?.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.workingHours.endTime" for="field_endTime">End Time</label>
+          <div class="d-flex">
+            <input
+              id="field_endTime"
+              data-cy="endTime"
+              type="datetime-local"
+              class="form-control"
+              name="endTime"
+              formControlName="endTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (editForm.get('endTime')!.invalid && (editForm.get('endTime')!.dirty || editForm.get('endTime')!.touched)) {
+            <div>
+              @if (editForm.get('endTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('endTime')?.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.workingHours.employee" for="field_employee">Employee</label>
+          <select
+            class="form-control"
+            id="field_employee"
+            data-cy="employee"
+            name="employee"
+            formControlName="employee"
+            [compareWith]="compareEmployee"
+          >
+            <option [ngValue]="null"></option>
+            @for (employeeOption of employeesSharedCollection; track $index) {
+              <option [ngValue]="employeeOption">{{ employeeOption.name }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

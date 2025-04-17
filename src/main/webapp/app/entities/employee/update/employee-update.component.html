@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-employee-heading" data-cy="EmployeeCreateUpdateHeading" jhiTranslate="appointmentApp.employee.home.createOrEditLabel">
+        Create or edit a Employee
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="appointmentApp.employee.id" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.employee.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          @if (editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)) {
+            <div>
+              @if (editForm.get('name')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              @if (editForm.get('name')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }"
+                  >This field cannot be longer than 255 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.employee.specialization" for="field_specialization">Specialization</label>
+          <input
+            type="text"
+            class="form-control"
+            name="specialization"
+            id="field_specialization"
+            data-cy="specialization"
+            formControlName="specialization"
+          />
+          @if (
+            editForm.get('specialization')!.invalid && (editForm.get('specialization')!.dirty || editForm.get('specialization')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('specialization')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              @if (editForm.get('specialization')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }"
+                  >This field cannot be longer than 255 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="appointmentApp.employee.serviceProvider" for="field_serviceProvider"
+            >Service Provider</label
+          >
+          <select
+            class="form-control"
+            id="field_serviceProvider"
+            data-cy="serviceProvider"
+            name="serviceProvider"
+            formControlName="serviceProvider"
+            [compareWith]="compareServiceProvider"
+          >
+            <option [ngValue]="null"></option>
+            @for (serviceProviderOption of serviceProvidersSharedCollection; track $index) {
+              <option [ngValue]="serviceProviderOption">{{ serviceProviderOption.name }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="appointmentApp.employee.servicesForCustomer" for="field_servicesForCustomers">Services For Customer</label>
+          <select
+            class="form-control"
+            id="field_servicesForCustomers"
+            data-cy="servicesForCustomer"
+            multiple
+            name="servicesForCustomers"
+            formControlName="servicesForCustomers"
+            [compareWith]="compareServiceForCustomer"
+          >
+            @for (serviceForCustomerOption of serviceForCustomersSharedCollection; track $index) {
+              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="appointmentApp.employee.services" for="field_services">Services</label>
+          <select
+            class="form-control"
+            id="field_services"
+            data-cy="services"
+            multiple
+            name="services"
+            formControlName="services"
+            [compareWith]="compareService"
+          >
+            @for (serviceOption of servicesSharedCollection; track $index) {
+              <option [ngValue]="serviceOption">{{ serviceOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
