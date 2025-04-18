@@ -1,23 +1,470 @@
-/* ==========================================================================
-Main page styles
-========================================================================== */
+// Variables (optional, for easier color management)
+$primary-color: #00c896; // A green close to the button color
+$secondary-text-color: #666; // Greyish text color
+$background-light: #f8f9fa; // Light background
 
-.hipster {
-  display: inline-block;
-  width: 347px;
-  height: 497px;
-  background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
-  background-size: contain;
+body {
+  font-family: 'Roboto', sans-serif; // Use the font imported
+  margin: 0;
+  padding: 0;
+  background-color: $background-light;
+  overflow-x: hidden; // Prevent horizontal scroll
 }
 
-/* wait autoprefixer update to allow simple generation of high pixel density media query */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (-moz-min-device-pixel-ratio: 2),
-  only screen and (-o-min-device-pixel-ratio: 2/1),
-  only screen and (min-resolution: 192dpi),
-  only screen and (min-resolution: 2dppx) {
-  .hipster {
-    background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
-    background-size: contain;
+.custom-container {
+  width: 100%; // Full viewport width
+  height: 100vh; // Full viewport height
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  width: 100%; // Full width of parent
+  height: 100%; // Full height of parent
+  border-radius: 0; // Remove border radius for full-size
+  overflow: hidden; // Ensures content doesn't spill
+  box-shadow: none; // Remove shadow for full-size look
+  display: flex;
+  flex-direction: row;
+}
+
+.left-column {
+  background-color: #fff; // White background for the left column
+  padding: 40px;
+  flex: 1; // Take equal space
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Center content vertically
+  align-items: center; // Center content horizontally
+}
+
+.content-wrapper {
+  max-width: 600px; // Slightly larger for full-size
+  width: 90%; // Responsive width
+  margin: 0 auto; // Center the content
+}
+
+.main-heading {
+  font-size: 3rem; // Larger for full-size
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.sub-text {
+  font-size: 1.2rem; // Slightly larger
+  color: $secondary-text-color;
+  margin-bottom: 30px;
+}
+
+.book-appointment-btn {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: #fff;
+  font-size: 1.4rem; // Larger for emphasis
+  padding: 15px 40px;
+  border-radius: 30px; // Pill shape
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
+  }
+}
+
+.quick-booking {
+  margin-top: 40px;
+
+  h2 {
+    font-size: 1.8rem; // Larger for full-size
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .form-label {
+    font-weight: 500;
+    color: #555;
+  }
+
+  .input-group {
+    .form-control,
+    .form-select {
+      border-radius: 8px;
+      border-color: #ddd;
+      font-size: 1.1rem; // Slightly larger
+    }
+
+    .input-group-text {
+      background-color: #eee;
+      border-color: #ddd;
+      border-radius: 8px 0 0 8px; // Match form control border radius
+      padding: 0.5rem 1rem; // Adjusted padding
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .calendar-representation {
+    font-size: 1rem; // Slightly larger
+    color: $secondary-text-color;
+
+    .d-flex > span {
+      flex-basis: 14.28%; // Distribute days evenly
+      text-align: center;
+    }
+
+    .active-day {
+      background-color: $primary-color;
+      color: #fff;
+      border-radius: 50%; // Circle for active day
+      padding: 5px;
+      //display: inline-block;
+      width: 45px; // Larger for visibility
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      line-height: 22px; // Vertically center text
+      text-align: center;
+    }
+  }
+
+  .disabled {
+    margin-top: 5px;
+  }
+
+  .btn-group {
+    .btn {
+      border-radius: 8px;
+      margin-right: 8px;
+      font-size: 1.1rem; // Slightly larger
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .btn-secondary {
+      background-color: #eee;
+      border-color: #ddd;
+      color: #333;
+
+      &.active {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: #fff;
+      }
+    }
+  }
+
+  .btn-success {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    border-radius: 0 8px 8px 0; // Match form control border radius
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem; // Slightly larger
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      border-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.right-column {
+  background-size: cover;
+  background-position: center;
+  flex: 1; // Take equal space
+  position: relative;
+  display: flex;
+  align-items: center; // Vertically center content
+  justify-content: center; // Horizontally center content
+  color: #fff; // Text color for the right column
+  padding: 40px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); // Semi-transparent overlay
+  z-index: 1;
+}
+
+.right-content {
+  position: relative;
+  z-index: 2; // Ensure content is above the overlay
+  max-width: 500px; // Slightly larger for full-size
+  width: 90%; // Responsive width
+  text-align: center; // Center text
+  background-color: rgba(255, 255, 255, 0.8); // Semi-transparent white background
+  padding: 40px;
+  border-radius: 10px;
+  color: #333; // Darker text color for readability
+}
+
+.right-content h3 {
+  font-size: 2.2rem; // Larger for full-size
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.right-content ul {
+  list-style: none;
+  padding: 0;
+  text-align: left; // Align list items to the left
+
+  li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px; // Space for custom bullet
+    font-size: 1.1rem; // Slightly larger
+
+    &::before {
+      content: '\2022'; // Unicode for bullet point
+      position: absolute;
+      left: 0;
+      color: $primary-color; // Color the bullet
+      font-size: 1.4em;
+      line-height: 1;
+    }
+  }
+}
+.time-slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(102, 102, 102, 0.21);
+  border-radius: 8px;
+  padding: 4px;
+}
+.complaints-link {
+  display: block; // Make it a block element
+  text-align: right;
+  margin-top: 20px;
+  color: $secondary-text-color;
+  text-decoration: none;
+  font-size: 1rem; // Slightly larger
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column; // Stack columns on smaller screens
+    height: auto; // Allow natural height
+  }
+
+  .left-column,
+  .right-column {
+    //padding: 30px;
+    flex: none; // Remove flex grow
+    width: 100%; // Full width
+  }
+
+  .right-column {
+    min-height: 400px; // Ensure some height for image
+  }
+
+  .overlay {
+    border-radius: 0; // Adjust for full-size
+  }
+
+  .main-heading {
+    font-size: 2.2rem;
+  }
+
+  .sub-text {
+    font-size: 1rem;
+  }
+
+  .book-appointment-btn {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+
+  .quick-booking h2 {
+    font-size: 1.5rem;
+  }
+
+  .quick-booking .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .quick-booking .col-md-6 {
+    width: 100%;
+  }
+
+  .right-content {
+    padding: 20px;
+  }
+
+  .right-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .right-content ul li {
+    font-size: 1rem;
+  }
+}
+// Variables (optional, for easier color management)
+$primary-color: #00c896; // A green close to the button color
+$secondary-text-color: #666; // Greyish text color
+$border-color: #ddd; // Border color for inputs and buttons
+$background-light: #f8f9fa; // Light background
+
+.quick-booking-section {
+  background-color: #fff; // White background
+  padding: 10px;
+  border-radius: 15px; // Rounded corners
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); // Subtle shadow
+  max-width: 800px; // Limit the width
+  margin: 20px auto; // Center the section
+  border: 3px solid #00c896; // Light border
+}
+
+.quick-booking-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.input-group {
+  .form-control,
+  .form-select {
+    border-radius: 8px;
+    border-color: $border-color;
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
+    }
+  }
+
+  .input-group-text {
+    background-color: #eee;
+    border-color: $border-color;
+    border-radius: 8px 0 0 8px; // Match form control border radius
+    padding: 0.375rem 0.75rem; // Adjust padding
+    display: flex;
+    align-items: center;
+    color: #555;
+  }
+}
+//.calendar-container{
+//  border-radius: 8px;
+//  padding: 5px;
+//  background-color: rgba(102, 102, 102, 0.21);; // Light background for calendar
+//}
+.calendar-representation {
+  font-size: 0.9rem;
+  color: $secondary-text-color;
+  background-color: white; // Light background for calendar
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+
+  .d-flex > span {
+    flex-basis: 14.28%; // Distribute days evenly
+    text-align: center;
+    padding: 3px 0;
+  }
+
+  .active-day {
+    background-color: $primary-color;
+    color: #fff;
+    border-radius: 50%; // Circle for active day
+    padding: 3px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 20px; // Vertically center text
+    text-align: center;
+    font-weight: 700;
+  }
+}
+
+.btn-group {
+  .btn {
+    border-radius: 8px;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .btn-secondary {
+    background-color: #eee;
+    border-color: $border-color;
+    color: #333;
+    &:hover {
+      background-color: #ddd;
+    }
+    &.active {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: #fff;
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        border-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.btn-success {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  border-radius: 8px 8px; // Match form control border radius
+  transition: background-color 0.3s ease;
+  color: #fff;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
+  }
+}
+
+.time-display {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .quick-booking-section {
+    padding: 20px;
+  }
+
+  .quick-booking-section .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .quick-booking-section .col-md-4 {
+    width: 100%;
+  }
+
+  .time-display {
+    font-size: 1.5rem;
   }
 }
