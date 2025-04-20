@@ -1,0 +1,73 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+/* ==========================================================================
+   Footer Variables (Derived from Navbar/Bootstrap Defaults)
+   ========================================================================== */
+$footer-bg: $light; // Matches navbar bg-light
+$footer-color: $gray-700; // Slightly darker than text-muted for readability
+$footer-link-color: $gray-800; // Link color - slightly darker than base text
+$footer-link-hover-color: #00c896; // Use the same primary hover color as navbar
+$footer-border-color: $border-color; // Bootstrap's default border color
+
+/* ==========================================================================
+   Footer Base Styles
+   ========================================================================== */
+.app-footer {
+  background-color: $footer-bg;
+  color: $footer-color;
+  border-top: 1px solid $footer-border-color; // Subtle separation from content above
+  font-size: 0.9em; // Slightly smaller font size for footer text
+
+  p {
+    // Reset paragraph margin if needed within the footer context
+    margin-bottom: 0; // Removed from <p> tag directly in HTML now
+  }
+
+  a {
+    color: $footer-link-color;
+    text-decoration: none; // Remove default underline
+    font-weight: 500; // Consistent with nav links
+    transition: color 0.2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: $footer-link-hover-color;
+      text-decoration: none; // Keep underline off on hover too, or add it: underline;
+    }
+  }
+
+  // Specific style for the brand link in the footer
+  .footer-brand-link {
+    font-weight: 600; // Make the brand name slightly bolder
+    color: $gray-800; // Darker color for the brand
+
+    &:hover,
+    &:focus {
+      color: $footer-link-hover-color;
+    }
+  }
+
+  /* Optional: Styles for extra links */
+  .footer-links {
+    margin-top: 0.5rem; // Space above the optional links
+    font-size: 0.9em; // Make optional links slightly smaller
+
+    a {
+      color: $gray-600; // Lighter color for secondary links
+      font-weight: 400; // Normal weight
+
+      &:hover,
+      &:focus {
+        color: $footer-link-hover-color;
+        text-decoration: underline; // Add underline on hover for secondary links
+      }
+    }
+
+    .separator {
+      color: $gray-400; // Very subtle separator color
+      margin: 0 0.25rem; // Space around separator
+    }
+  }
+}

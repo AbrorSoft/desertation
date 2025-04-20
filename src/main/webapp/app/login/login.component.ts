@@ -15,7 +15,9 @@ import { AccountService } from 'app/core/auth/account.service';
 export default class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('username', { static: false })
   username!: ElementRef;
-
+  loginDisabled = false;
+  countdown = 30;
+  intervalId: any;
   authenticationError = signal(false);
 
   loginForm = new FormGroup({
@@ -35,6 +37,7 @@ export default class LoginComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // if already authenticated then navigate to home page
+    this.checkLoginErrors();
     this.accountService.identity().subscribe(() => {
       if (this.accountService.isAuthenticated()) {
         this.router.navigate(['']);
@@ -45,17 +48,47 @@ export default class LoginComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.username.nativeElement.focus();
   }
+  checkLoginErrors(): void {
+    const errorCount = Number(localStorage.getItem('loginErrors')) || 0;
 
+    if (errorCount >= 3) {
+      this.loginDisabled = true;
+      this.startCountdown();
+    }
+  }
+  startCountdown(): void {
+    this.countdown = 30;
+    this.intervalId = setInterval(() => {
+      this.countdown--;
+      if (this.countdown <= 0) {
+        clearInterval(this.intervalId);
+        localStorage.setItem('loginErrors', '0');
+        this.loginDisabled = false;
+      }
+    }, 1000);
+  }
   login(): void {
     this.loginService.login(this.loginForm.getRawValue()).subscribe({
       next: () => {
         this.authenticationError.set(false);
+        localStorage.removeItem('loginErrors');
+
         if (!this.router.getCurrentNavigation()) {
-          // There were no routing during login (eg from navigationToStoredUrl)
           this.router.navigate(['']);
         }
       },
-      error: () => this.authenticationError.set(true),
+      error: () => {
+        this.authenticationError.set(true);
+
+        const errorCount = Number(localStorage.getItem('loginErrors')) || 0;
+        const updatedCount = errorCount + 1;
+        localStorage.setItem('loginErrors', updatedCount.toString());
+
+        if (updatedCount >= 3) {
+          this.loginDisabled = true;
+          this.startCountdown();
+        }
+      },
     });
   }
 }

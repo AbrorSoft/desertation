@@ -1,36 +1,191 @@
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins'; // Import mixins for utilities like border-radius
 
 /* ==========================================================================
-Navbar
-========================================================================== */
+   Navbar Variables (Customize these colors)
+   ========================================================================== */
+$navbar-link-color: rgba($black, 0.65); // Slightly darker default link color for better contrast on light bg
+$navbar-link-hover-color: #00c896; // Use your app's primary color on hover
+$navbar-link-active-color: #00c896; // Use your app's primary color for active links
+$navbar-toggler-color: rgba($black, 0.7);
+$navbar-toggler-border-color: rgba($black, 0.1);
+$navbar-brand-color: rgba($black, 0.9);
+$navbar-brand-hover-color: darken($navbar-brand-color, 10%);
 
-.navbar-version {
-  font-size: 0.65em;
-  color: $navbar-dark-color;
-}
-
-.profile-image {
-  height: 1.75em;
-  width: 1.75em;
-}
-
+/* ==========================================================================
+   Navbar Base Styles
+   ========================================================================== */
 .navbar {
-  padding: 0.2rem 1rem;
+  padding: 0.75rem 1.25rem; // Slightly increased padding
+  transition: background-color 0.3s ease; // Smooth transition if bg changes later
 
-  a.nav-link {
-    font-weight: 400;
+  // Add padding to the body when using fixed-top navbar
+  // Place this in your global styles (e.g., global.scss or styles.scss)
+  // + .body-padding {
+  //   padding-top: 70px; // Adjust based on your final navbar height
+  // }
+  // --- End global style suggestion ---
+}
+
+/* ==========================================================================
+   Brand/Logo Styles
+   ========================================================================== */
+.navbar-brand {
+  color: $navbar-brand-color;
+  display: flex; // Use flexbox for alignment
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    color: $navbar-brand-hover-color;
+  }
+
+  .logo-img {
+    height: 35px; // Slightly smaller logo? Adjust as needed
+    width: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url('/content/images/logo.svg') no-repeat center center; // Ensure your logo looks good on a light background
+    background-size: contain;
+    margin-right: 0.5rem;
+  }
+
+  .navbar-title {
+    font-size: 1.15rem; // Slightly larger title
+    font-weight: 600; // Bolder title
+    margin-right: 0.5rem; // Space between title and version
+  }
+
+  .navbar-version {
+    font-size: 0.7em;
+    font-weight: 400; // Normal weight
+    color: rgba($black, 0.5); // Version color for light theme
+    vertical-align: middle; // Align with title
+    margin-top: 2px; // Fine-tune vertical alignment
   }
 }
 
 /* ==========================================================================
-Logo styles
-========================================================================== */
-.logo-img {
-  height: 45px;
-  width: 45px;
-  display: inline-block;
-  vertical-align: middle;
-  background: url('/content/images/logo-jhipster.png') no-repeat center center;
-  background-size: contain;
+   Navbar Links
+   ========================================================================== */
+.navbar-nav {
+  .nav-item {
+    margin-left: 0.25rem; // Add a little space between top-level items
+  }
+
+  .nav-link {
+    color: $navbar-link-color;
+    font-weight: 500; // Slightly bolder links
+    padding: 0.6rem 0.9rem; // Adjust link padding
+    transition:
+      color 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+    border-radius: $border-radius; // Add subtle rounding on hover/active bg
+
+    fa-icon {
+      margin-right: 0.4rem; // Space between icon and text
+      font-size: 1em; // Ensure icon size is consistent
+    }
+
+    &:hover,
+    &:focus {
+      color: $navbar-link-hover-color;
+      background-color: rgba($primary, 0.05); // Subtle background on hover
+    }
+  }
+
+  // Active link styling
+  .nav-item.active .nav-link {
+    color: $navbar-link-active-color;
+    font-weight: 600; // Bolder active link
+    background-color: rgba($primary, 0.1); // Slightly stronger background for active
+  }
 }
+
+/* ==========================================================================
+   Dropdown Menus
+   ========================================================================== */
+.dropdown-menu {
+  border-radius: $border-radius-lg; // Softer rounding for dropdown
+  border: none; // Remove default border, rely on shadow
+  box-shadow: $box-shadow; // Use Bootstrap's standard shadow
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  .dropdown-item {
+    color: $gray-700; // Slightly softer text color
+    font-weight: 500;
+    padding: 0.5rem 1.25rem; // Adjust padding
+    transition:
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+
+    fa-icon {
+      margin-right: 0.6rem; // More space for icon in dropdown
+      width: 1.1em; // Ensure fixed width aligns text nicely
+      text-align: center;
+      color: $gray-500; // Subtler icon color
+      transition: color 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba($primary, 0.1); // Use consistent hover background
+      color: $primary; // Highlight text on hover
+
+      fa-icon {
+        color: $primary; // Highlight icon on hover
+      }
+    }
+
+    &.active {
+      background-color: $primary;
+      color: $white;
+
+      fa-icon {
+        color: $white;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Profile Image & Toggler
+   ========================================================================== */
+.profile-image {
+  height: 2.25em; // Slightly larger profile image
+  width: 2.25em;
+  margin-right: -0.25rem; // Adjust spacing if needed when text is hidden
+}
+
+.navbar-toggler {
+  // Use Bootstrap variables for easier customization if needed later
+  color: $navbar-toggler-color;
+  border-color: $navbar-toggler-border-color;
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+  font-size: $navbar-toggler-font-size;
+  line-height: 1;
+  background-color: transparent;
+  border: $border-width solid transparent;
+  @include border-radius($navbar-toggler-border-radius);
+  @include transition($navbar-toggler-transition);
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  .fa-bars {
+    // Style the FontAwesome icon within the toggler
+    color: $navbar-toggler-color;
+    font-size: 1.4em; // Make the bars icon slightly larger
+    vertical-align: middle;
+  }
+}
+
+// Remove original specific styles that are now covered or adjusted
+// .navbar-version { } // Covered in .navbar-brand section
+// .profile-image { } // Adjusted above
+// .navbar { } // Covered in .navbar base styles
+// .logo-img { } // Covered in .navbar-brand section

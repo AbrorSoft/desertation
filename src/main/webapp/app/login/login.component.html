@@ -116,6 +116,7 @@
 
               <!-- Submit Button -->
               <button
+                *ngIf="!loginDisabled; else countdownTemplate"
                 type="submit"
                 class="btn btn-primary btn-lg w-100 rounded-pill py-3"
                 [disabled]="loginForm.invalid"
@@ -124,6 +125,12 @@
               >
                 Sign In
               </button>
+
+              <ng-template #countdownTemplate>
+                <button type="button" class="btn btn-secondary btn-lg w-100 rounded-pill py-3" disabled>
+                  Try again in {{ countdown }}s
+                </button>
+              </ng-template>
             </form>
 
             <!-- Registration Link -->

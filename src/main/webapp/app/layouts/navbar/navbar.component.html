@@ -1,8 +1,8 @@
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav data-cy="navbar" class="navbar navbar-light navbar-expand-md bg-light fixed-top shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
-      <span jhiTranslate="global.title" class="navbar-title">Appointment</span>
+      <span class="navbar-title" jhiTranslate="global.title">Quick queue</span>
       <span class="navbar-version">{{ version }}</span>
     </a>
     <a
@@ -22,7 +22,7 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <fa-icon icon="home" [fixedWidth]="true"></fa-icon>
               <span jhiTranslate="global.menu.home">Home</span>
             </span>
           </a>
@@ -30,12 +30,19 @@
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/appointment-service" (click)="collapseNavbar()">
             <span>
-              <fa-icon icon="home"></fa-icon>
+              <fa-icon icon="calendar-alt" [fixedWidth]="true"></fa-icon>
               <span jhiTranslate="appointment-service">Appointment Service</span>
             </span>
           </a>
         </li>
-        <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/book-appointment" (click)="collapseNavbar()">
+            <span>
+              <fa-icon icon="calendar-alt" [fixedWidth]="true"></fa-icon>
+              <span jhiTranslate="book-appointment">Book Appointment</span>
+            </span>
+          </a>
+        </li>
         @if (account() !== null) {
           <li
             ngbDropdown
@@ -46,11 +53,11 @@
           >
             <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu" data-cy="entity">
               <span>
-                <fa-icon icon="th-list"></fa-icon>
+                <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.entities.main">Entities</span>
               </span>
             </a>
-            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+            <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu aria-labelledby="entity-menu">
               <li>
                 <a
                   class="dropdown-item"
@@ -59,7 +66,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.serviceProvider">Service Provider</span>
                 </a>
               </li>
@@ -71,7 +77,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.employee">Employee</span>
                 </a>
               </li>
@@ -83,7 +88,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.room">Room</span>
                 </a>
               </li>
@@ -95,7 +99,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.service">Service</span>
                 </a>
               </li>
@@ -107,7 +110,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.workingHours">Working Hours</span>
                 </a>
               </li>
@@ -119,7 +121,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.appointment">Appointment</span>
                 </a>
               </li>
@@ -131,11 +132,9 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.serviceForCustomer">Service For Customer</span>
                 </a>
               </li>
-              <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
             </ul>
           </li>
         }
@@ -149,11 +148,17 @@
         >
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu" data-cy="adminMenu">
             <span>
-              <fa-icon icon="users-cog"></fa-icon>
+              <fa-icon icon="users-cog" [fixedWidth]="true"></fa-icon>
               <span jhiTranslate="global.menu.admin.main">Administration</span>
             </span>
           </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
+          <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu aria-labelledby="admin-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
+                <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+              </a>
+            </li>
             <li>
               <a
                 class="dropdown-item"
@@ -162,15 +167,7 @@
                 [routerLinkActiveOptions]="{ exact: true }"
                 (click)="collapseNavbar()"
               >
-                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.entities.adminAuthority">Authority</span>
-              </a>
-            </li>
-            <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
-            <li>
-              <a class="dropdown-item" routerLink="/admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
-                <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
-                <span jhiTranslate="global.menu.admin.userManagement">User management</span>
               </a>
             </li>
             <li>
@@ -219,11 +216,11 @@
           <li ngbDropdown class="nav-item dropdown pointer" display="dynamic">
             <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
               <span>
-                <fa-icon icon="flag"></fa-icon>
+                <fa-icon icon="flag" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.language">Language</span>
               </span>
             </a>
-            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+            <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
               @for (language of languages; track $index) {
                 <li>
                   <a
@@ -248,16 +245,15 @@
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
             @if (!account()?.imageUrl) {
               <span>
-                <fa-icon icon="user"></fa-icon>
-                <span jhiTranslate="global.menu.account.main">Account</span>
+                <fa-icon icon="users-cog" [fixedWidth]="true"></fa-icon> <span jhiTranslate="global.menu.account.main">Account</span>
               </span>
             } @else {
-              <span>
+              <span class="d-flex align-items-center">
                 <img [src]="account()!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
               </span>
             }
           </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+          <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu aria-labelledby="account-menu">
             @if (account() !== null) {
               <li>
                 <a
@@ -315,3 +311,5 @@
     </div>
   </div>
 </nav>
+
+<div class="body-padding"></div>

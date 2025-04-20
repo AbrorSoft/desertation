@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Appointment",
+    "title": "Tez navbat",
     "browsehappy": "Sizning brauzeringiz <strong>eski</strong>. Iltimos, <a href=\"http://browsehappy.com/?locale=ru\">yangilang</a>.",
     "menu": {
       "home": "Bosh sahifa",
@@ -148,5 +148,7 @@
       "not.image": "Fayl rasm bo‘lishi kerak edi, lekin \"{{ fileType }}\" topildi"
     }
   },
-  "footer": "Sahifa tag qismi"
+  "footer": {
+    "right": "Barcha huquqlar himoyalangan."
+  }
 }

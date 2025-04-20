@@ -1,0 +1,84 @@
+<main class="container-fluid">
+  <section class="hero-banner rounded-4 text-white d-flex align-items-center">
+    <div class="hero-content text-center mx-auto">
+      <h1 class="display-4 fw-bold mb-3">Summer Arrival of Outfit</h1>
+      <p class="lead mb-4">Discover quality fashion that reflects your style and makes everyday enjoyable.</p>
+      <button class="btn btn-light explore-btn rounded-pill px-4 py-2 fw-medium">
+        EXPLORE PRODUCT <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </section>
+
+  <section class="promo-section">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="promo-card rounded-4 overflow-hidden">
+          <div class="card-content">
+            <h3 class="fw-semibold">Where dreams meet couture</h3>
+            <a href="#" class="shop-now-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="promo-card promo-card-alt rounded-4 overflow-hidden">
+          <div class="card-content">
+            <h3 class="fw-semibold">Enchanting styles for every woman</h3>
+            <a href="#" class="shop-now-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section pt-3">
+    <h2 class="fw-bold mb-4">Browse by categories</h2>
+    <div class="category-filters d-flex flex-wrap justify-content-center">
+      <button
+        class="btn filter-btn rounded-pill me-2 mb-2 px-4"
+        [ngClass]="{ active: selectedCategory === 'GYM' }"
+        (click)="filterAppointments('Gym')"
+      >
+        Gym
+      </button>
+      <button
+        class="btn filter-btn rounded-pill me-2 mb-2 px-4"
+        [ngClass]="{ active: selectedCategory === 'CLINIC' }"
+        (click)="filterAppointments('Clinic')"
+      >
+        Clinic
+      </button>
+      <button
+        class="btn filter-btn rounded-pill me-2 mb-2 px-4"
+        [ngClass]="{ active: selectedCategory === 'Barbershop' }"
+        (click)="filterAppointments('Barbershop')"
+      >
+        Barbershop
+      </button>
+      <button
+        class="btn filter-btn rounded-pill me-2 mb-2 px-4"
+        [ngClass]="{ active: selectedCategory === 'Salon' }"
+        (click)="filterAppointments('Salon')"
+      >
+        Salon
+      </button>
+      <button
+        class="btn filter-btn rounded-pill me-2 mb-2 px-4"
+        [ngClass]="{ active: selectedCategory === 'Spa' }"
+        (click)="filterAppointments('Spa')"
+      >
+        Spa
+      </button>
+    </div>
+  </section>
+  <section class="appointments-section mt-4">
+    <div *ngIf="appointments?.length; else noAppointments">
+      <div *ngFor="let appointment of appointments" class="appointment-card">
+        <!-- Display appointment details -->
+        <p>{{ appointment.id }} - {{ appointment.status }}</p>
+      </div>
+    </div>
+    <ng-template #noAppointments>
+      <p>No appointments found for this category.</p>
+    </ng-template>
+  </section>
+</main>

@@ -46,6 +46,11 @@ const routes: Routes = [
     data: { pageTitle: 'appointment-service' },
     loadChildren: () => import('./client/appointment-service/appointment-service.routes'),
   },
+  {
+    path: 'book-appointment',
+    data: { pageTitle: 'book-appointment' },
+    loadChildren: () => import('./client/book-appointment/book-appointment.routes'),
+  },
 ];
 
 export default routes;

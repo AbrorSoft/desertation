@@ -468,3 +468,256 @@ $background-light: #f8f9fa; // Light background
     font-size: 1.5rem;
   }
 }
+.section {
+  padding: 60px 0;
+  background-color: var(--background-light);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-section {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 40px;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: var(--secondary-text-color);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.services-section {
+  background-color: var(--background-light);
+}
+
+.service-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  background-color: #fff;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.service-card .card-body {
+  padding: 20px;
+}
+
+.service-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service-card .card-text {
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
+}
+
+.service-card .btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.service-card .btn:hover {
+  background-color: #009c74;
+  border-color: #009c74;
+}
+
+.testimonials-section {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 40px;
+}
+
+.testimonial {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.testimonial p {
+  font-size: 1.1rem;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.testimonial .author {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.contact-section {
+  background-color: var(--background-light);
+}
+
+.contact-form {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+}
+
+.contact-form .form-control {
+  border-radius: 8px;
+  border-color: var(--border-color);
+  font-size: 1.1rem;
+}
+
+.contact-form .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(0, 200, 150, 0.25);
+}
+
+.contact-form .btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.contact-form .btn:hover {
+  background-color: #009c74;
+  border-color: #009c74;
+}
+
+.contact-info {
+  font-size: 1.1rem;
+  color: var(--secondary-text-color);
+  line-height: 1.6;
+}
+
+.contact-info i {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-column,
+  .right-column {
+    flex: none;
+    width: 100%;
+  }
+
+  .right-column {
+    min-height: 400px;
+  }
+
+  .overlay {
+    border-radius: 0;
+  }
+
+  .main-heading {
+    font-size: 2.2rem;
+  }
+
+  .sub-text {
+    font-size: 1rem;
+  }
+
+  .book-appointment-btn {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+
+  .quick-booking-section {
+    padding: 20px;
+  }
+
+  .quick-booking-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .quick-booking-section .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .quick-booking-section .col-md-4 {
+    width: 100%;
+  }
+
+  .time-display {
+    font-size: 1.5rem;
+  }
+
+  .right-content {
+    padding: 20px;
+  }
+
+  .right-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .right-content ul li {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .about-section {
+    padding: 20px;
+  }
+
+  .service-card img {
+    height: 150px;
+  }
+
+  .service-card .card-title {
+    font-size: 1.3rem;
+  }
+
+  .testimonials-section {
+    padding: 20px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+}

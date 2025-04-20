@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Appointment",
+    "title": "Быстрая очередь",
     "browsehappy": "Ваш браузер <strong>устарел</strong>. Пожалуйста <a href=\"http://browsehappy.com/?locale=ru\">обновите ваш браузер</a>.",
     "menu": {
       "home": "Главная",
@@ -148,5 +148,7 @@
       "not.image": "Файл должен был быть изображением, но было установлено, что \"{{ fileType }}\""
     }
   },
-  "footer": "Это ваш футтер"
+  "footer": {
+    "right": "Все права защищены."
+  }
 }
