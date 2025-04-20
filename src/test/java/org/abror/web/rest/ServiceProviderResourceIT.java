@@ -40,6 +40,10 @@ class ServiceProviderResourceIT {
     private static final ServiceProviderType DEFAULT_TYPE = ServiceProviderType.BARBERSHOP;
     private static final ServiceProviderType UPDATED_TYPE = ServiceProviderType.SALON;
 
+    private static final Double DEFAULT_AMOUNT = 1D;
+    private static final Double UPDATED_AMOUNT = 2D;
+    private static final Double SMALLER_PRICE = 1D - 1D;
+
     private static final String DEFAULT_ADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_ADDRESS = "BBBBBBBBBB";
 
@@ -79,6 +83,7 @@ class ServiceProviderResourceIT {
         ServiceProvider serviceProvider = new ServiceProvider()
             .name(DEFAULT_NAME)
             .type(DEFAULT_TYPE)
+            .amount(DEFAULT_AMOUNT)
             .address(DEFAULT_ADDRESS)
             .contactInfo(DEFAULT_CONTACT_INFO);
         return serviceProvider;
@@ -94,6 +99,7 @@ class ServiceProviderResourceIT {
         ServiceProvider serviceProvider = new ServiceProvider()
             .name(UPDATED_NAME)
             .type(UPDATED_TYPE)
+            .amount(UPDATED_AMOUNT)
             .address(UPDATED_ADDRESS)
             .contactInfo(UPDATED_CONTACT_INFO);
         return serviceProvider;
@@ -307,6 +313,76 @@ class ServiceProviderResourceIT {
 
         // Get all the serviceProviderList where type is not null
         defaultServiceProviderFiltering("type.specified=true", "type.specified=false");
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsEqualToSomething() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where price equals to
+        defaultServiceProviderFiltering("amount.equals=" + DEFAULT_AMOUNT, "amount.equals=" + UPDATED_AMOUNT);
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsInShouldWork() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where price in
+        defaultServiceProviderFiltering("amount.in=" + DEFAULT_AMOUNT + "," + UPDATED_AMOUNT, "amount.in=" + UPDATED_AMOUNT);
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where amount is not null
+        defaultServiceProviderFiltering("amount.specified=true", "amount.specified=false");
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsGreaterThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where amount is greater than or equal to
+        defaultServiceProviderFiltering("amount.greaterThanOrEqual=" + DEFAULT_AMOUNT, "amount.greaterThanOrEqual=" + UPDATED_AMOUNT);
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsLessThanOrEqualToSomething() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where amount is less than or equal to
+        defaultServiceProviderFiltering("amount.lessThanOrEqual=" + DEFAULT_AMOUNT, "amount.lessThanOrEqual=" + SMALLER_PRICE);
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsLessThanSomething() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where amount is less than
+        defaultServiceProviderFiltering("amount.lessThan=" + UPDATED_AMOUNT, "amount.lessThan=" + DEFAULT_AMOUNT);
+    }
+
+    @Test
+    @Transactional
+    void getAllServiceProvidersByAmountIsGreaterThanSomething() throws Exception {
+        // Initialize the database
+        serviceProviderRepository.saveAndFlush(serviceProvider);
+
+        // Get all the roomPricingList where amount is greater than
+        defaultServiceProviderFiltering("amount.greaterThan=" + SMALLER_PRICE, "amount.greaterThan=" + DEFAULT_AMOUNT);
     }
 
     @Test

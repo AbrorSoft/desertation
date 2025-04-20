@@ -1,9 +1,12 @@
 package org.abror.service;
 
 import jakarta.persistence.criteria.JoinType;
-import org.abror.domain.*; // for static metamodels
-import org.abror.domain.Appointment;
+import java.util.Objects;
+import java.util.Optional;
+import org.abror.domain.*;
 import org.abror.repository.AppointmentRepository;
+import org.abror.repository.UserRepository;
+import org.abror.security.SecurityUtils;
 import org.abror.service.criteria.AppointmentCriteria;
 import org.abror.service.dto.AppointmentDTO;
 import org.abror.service.mapper.AppointmentMapper;
@@ -32,9 +35,16 @@ public class AppointmentQueryService extends QueryService<Appointment> {
 
     private final AppointmentMapper appointmentMapper;
 
-    public AppointmentQueryService(AppointmentRepository appointmentRepository, AppointmentMapper appointmentMapper) {
+    private final UserRepository userRepository;
+
+    public AppointmentQueryService(
+        AppointmentRepository appointmentRepository,
+        AppointmentMapper appointmentMapper,
+        UserRepository userRepository
+    ) {
         this.appointmentRepository = appointmentRepository;
         this.appointmentMapper = appointmentMapper;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -46,7 +56,7 @@ public class AppointmentQueryService extends QueryService<Appointment> {
     @Transactional(readOnly = true)
     public Page<AppointmentDTO> findByCriteria(AppointmentCriteria criteria, Pageable page) {
         log.debug("find by criteria : {}, page: {}", criteria, page);
-        final Specification<Appointment> specification = createSpecification(criteria);
+        final Specification<Appointment> specification = createSpecificationByRole(criteria);
         return appointmentRepository.findAll(specification, page).map(appointmentMapper::toDto);
     }
 
@@ -60,6 +70,28 @@ public class AppointmentQueryService extends QueryService<Appointment> {
         log.debug("count by criteria : {}", criteria);
         final Specification<Appointment> specification = createSpecification(criteria);
         return appointmentRepository.count(specification);
+    }
+
+    protected Specification<Appointment> createSpecificationByRole(AppointmentCriteria criteria) {
+        String username = SecurityUtils.getCurrentUserLogin().orElseThrow();
+
+        Optional<User> userOptional = userRepository.findOneWithAuthoritiesByLogin(username);
+        if (userOptional.isPresent()) {
+            User user = userOptional.orElseThrow();
+
+            boolean roleAdmin = user.getAuthorities().stream().anyMatch(authority -> Objects.equals(authority.getName(), "ROLE_ADMIN"));
+
+            if (!roleAdmin) {
+                Specification<Appointment> specification = createSpecification(criteria);
+                return specification.and(createdBySpecification(username));
+            }
+        }
+
+        return createSpecification(criteria);
+    }
+
+    protected Specification<Appointment> createdBySpecification(String username) {
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("createdBy"), username);
     }
 
     /**
@@ -94,6 +126,14 @@ public class AppointmentQueryService extends QueryService<Appointment> {
                     buildSpecification(
                         criteria.getServiceProviderId(),
                         root -> root.join(Appointment_.serviceProvider, JoinType.LEFT).get(ServiceProvider_.id)
+                    )
+                );
+            }
+            if (criteria.getServiceProviderType() != null) {
+                specification = specification.and(
+                    buildSpecification(
+                        criteria.getServiceProviderType(),
+                        root -> root.join(Appointment_.serviceProvider, JoinType.LEFT).get(ServiceProvider_.type)
                     )
                 );
             }

@@ -52,6 +52,8 @@ public class AppointmentCriteria implements Serializable, Criteria {
 
     private LongFilter serviceProviderId;
 
+    private ServiceProviderCriteria.ServiceProviderTypeFilter serviceProviderType;
+
     private LongFilter employeeId;
 
     private LongFilter serviceForCustomerId;
@@ -71,6 +73,10 @@ public class AppointmentCriteria implements Serializable, Criteria {
         this.endTime = other.optionalEndTime().map(InstantFilter::copy).orElse(null);
         this.status = other.optionalStatus().map(AppointmentStatusFilter::copy).orElse(null);
         this.serviceProviderId = other.optionalServiceProviderId().map(LongFilter::copy).orElse(null);
+        this.serviceProviderType = other
+            .optionalServiceProviderType()
+            .map(ServiceProviderCriteria.ServiceProviderTypeFilter::copy)
+            .orElse(null);
         this.employeeId = other.optionalEmployeeId().map(LongFilter::copy).orElse(null);
         this.serviceForCustomerId = other.optionalServiceForCustomerId().map(LongFilter::copy).orElse(null);
         this.roomId = other.optionalRoomId().map(LongFilter::copy).orElse(null);
@@ -176,6 +182,18 @@ public class AppointmentCriteria implements Serializable, Criteria {
 
     public void setStatus(AppointmentStatusFilter status) {
         this.status = status;
+    }
+
+    public Optional<ServiceProviderCriteria.ServiceProviderTypeFilter> optionalServiceProviderType() {
+        return Optional.ofNullable(serviceProviderType);
+    }
+
+    public ServiceProviderCriteria.ServiceProviderTypeFilter getServiceProviderType() {
+        return serviceProviderType;
+    }
+
+    public void setServiceProviderType(ServiceProviderCriteria.ServiceProviderTypeFilter serviceProviderType) {
+        this.serviceProviderType = serviceProviderType;
     }
 
     public LongFilter getServiceProviderId() {

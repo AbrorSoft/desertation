@@ -49,6 +49,19 @@
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
 
+    <changeSet id="17351327896443243-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="appointment">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+
     <!--
         Load sample data generated with Faker.js
         - This data can be easily edited using a CSV editor (or even MS Excel) and

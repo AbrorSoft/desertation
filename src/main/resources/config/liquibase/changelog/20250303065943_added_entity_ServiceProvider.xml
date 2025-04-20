@@ -20,6 +20,9 @@
             <column name="type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
+            <column name="amount" type="double">
+                <constraints nullable="true"/>
+            </column>
             <column name="address" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

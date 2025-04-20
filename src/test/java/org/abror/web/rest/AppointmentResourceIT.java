@@ -22,6 +22,7 @@ import org.abror.domain.Room;
 import org.abror.domain.ServiceForCustomer;
 import org.abror.domain.ServiceProvider;
 import org.abror.domain.enumeration.AppointmentStatus;
+import org.abror.domain.enumeration.ServiceProviderType;
 import org.abror.repository.AppointmentRepository;
 import org.abror.service.dto.AppointmentDTO;
 import org.abror.service.mapper.AppointmentMapper;
@@ -452,6 +453,28 @@ class AppointmentResourceIT {
 
         // Get all the appointmentList where serviceProvider equals to (serviceProviderId + 1)
         defaultAppointmentShouldNotBeFound("serviceProviderId.equals=" + (serviceProviderId + 1));
+    }
+
+    @Test
+    @Transactional
+    void getAllAppointmentsByServiceProviderTypeIsEqualToSomething() throws Exception {
+        ServiceProvider serviceProvider;
+        if (TestUtil.findAll(em, ServiceProvider.class).isEmpty()) {
+            appointmentRepository.saveAndFlush(appointment);
+            serviceProvider = ServiceProviderResourceIT.createEntity(em);
+        } else {
+            serviceProvider = TestUtil.findAll(em, ServiceProvider.class).get(0);
+        }
+        em.persist(serviceProvider);
+        em.flush();
+        appointment.setServiceProvider(serviceProvider);
+        appointmentRepository.saveAndFlush(appointment);
+        ServiceProviderType type = serviceProvider.getType();
+        // Get all the appointmentList where serviceProvider equals to serviceProvider
+        defaultAppointmentShouldBeFound("serviceProviderType.equals=" + type);
+
+        // Get all the appointmentList where serviceProvider equals to (serviceProvider)
+        defaultAppointmentShouldNotBeFound("serviceProviderType.equals=" + ServiceProviderType.SALON);
     }
 
     @Test

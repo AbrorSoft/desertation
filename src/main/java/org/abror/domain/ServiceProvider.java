@@ -31,6 +31,9 @@ public class ServiceProvider implements Serializable {
     @Column(name = "type", nullable = false)
     private ServiceProviderType type;
 
+    @Column(name = "amount")
+    private Double amount;
+
     @Column(name = "address")
     private String address;
 
@@ -76,6 +79,19 @@ public class ServiceProvider implements Serializable {
 
     public void setType(ServiceProviderType type) {
         this.type = type;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public ServiceProvider amount(Double amount) {
+        this.amount = amount;
+        return this;
     }
 
     public String getAddress() {

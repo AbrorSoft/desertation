@@ -46,6 +46,8 @@ public class ServiceProviderCriteria implements Serializable, Criteria {
 
     private ServiceProviderTypeFilter type;
 
+    private DoubleFilter amount;
+
     private StringFilter address;
 
     private StringFilter contactInfo;
@@ -58,6 +60,7 @@ public class ServiceProviderCriteria implements Serializable, Criteria {
         this.id = other.optionalId().map(LongFilter::copy).orElse(null);
         this.name = other.optionalName().map(StringFilter::copy).orElse(null);
         this.type = other.optionalType().map(ServiceProviderTypeFilter::copy).orElse(null);
+        this.amount = other.optionalAmount().map(DoubleFilter::copy).orElse(null);
         this.address = other.optionalAddress().map(StringFilter::copy).orElse(null);
         this.contactInfo = other.optionalContactInfo().map(StringFilter::copy).orElse(null);
         this.distinct = other.distinct;
@@ -123,6 +126,18 @@ public class ServiceProviderCriteria implements Serializable, Criteria {
 
     public void setType(ServiceProviderTypeFilter type) {
         this.type = type;
+    }
+
+    public Optional<DoubleFilter> optionalAmount() {
+        return Optional.ofNullable(amount);
+    }
+
+    public DoubleFilter getAmount() {
+        return amount;
+    }
+
+    public void setAmount(DoubleFilter amount) {
+        this.amount = amount;
     }
 
     public StringFilter getAddress() {
