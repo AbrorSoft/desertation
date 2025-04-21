@@ -20,6 +20,8 @@ public class ServiceProviderDTO implements Serializable {
     @NotNull
     private ServiceProviderType type;
 
+    private Double amount;
+
     private String address;
 
     private String contactInfo;
@@ -46,6 +48,14 @@ public class ServiceProviderDTO implements Serializable {
 
     public void setType(ServiceProviderType type) {
         this.type = type;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public String getAddress() {

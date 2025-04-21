@@ -14,7 +14,7 @@ import org.abror.domain.enumeration.AppointmentStatus;
 @Entity
 @Table(name = "appointment")
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class Appointment implements Serializable {
+public class Appointment extends AbstractAuditingEntity<Long> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -57,7 +57,7 @@ public class Appointment implements Serializable {
     private Room room;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = {"authorities"}, allowSetters = true)
+    @JsonIgnoreProperties(value = { "authorities" }, allowSetters = true)
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

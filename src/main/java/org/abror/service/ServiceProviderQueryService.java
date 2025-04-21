@@ -82,6 +82,9 @@ public class ServiceProviderQueryService extends QueryService<ServiceProvider> {
             if (criteria.getType() != null) {
                 specification = specification.and(buildSpecification(criteria.getType(), ServiceProvider_.type));
             }
+            if (criteria.getAmount() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getAmount(), ServiceProvider_.amount));
+            }
             if (criteria.getAddress() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getAddress(), ServiceProvider_.address));
             }

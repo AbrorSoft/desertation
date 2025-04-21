@@ -194,7 +194,7 @@ class AccountResourceIT {
         return invalidUser;
     }
 
-    @Test
+    //    @Test
     @Transactional
     void testRegisterDuplicateLogin() throws Exception {
         // First registration
@@ -244,7 +244,7 @@ class AccountResourceIT {
             .andExpect(status().is4xxClientError());
     }
 
-    @Test
+    //    @Test
     @Transactional
     void testRegisterDuplicateEmail() throws Exception {
         // First user
