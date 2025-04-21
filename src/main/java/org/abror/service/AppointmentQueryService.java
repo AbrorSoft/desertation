@@ -54,9 +54,9 @@ public class AppointmentQueryService extends QueryService<Appointment> {
      * @return the matching entities.
      */
     @Transactional(readOnly = true)
-    public Page<AppointmentDTO> findByCriteria(AppointmentCriteria criteria, Pageable page) {
+    public Page<AppointmentDTO> findByCriteria(AppointmentCriteria criteria, Pageable page, Boolean getIsNullApps) {
         log.debug("find by criteria : {}, page: {}", criteria, page);
-        final Specification<Appointment> specification = createSpecificationByRole(criteria);
+        final Specification<Appointment> specification = createSpecificationByRole(criteria, getIsNullApps);
         return appointmentRepository.findAll(specification, page).map(appointmentMapper::toDto);
     }
 
@@ -72,7 +72,7 @@ public class AppointmentQueryService extends QueryService<Appointment> {
         return appointmentRepository.count(specification);
     }
 
-    protected Specification<Appointment> createSpecificationByRole(AppointmentCriteria criteria) {
+    protected Specification<Appointment> createSpecificationByRole(AppointmentCriteria criteria, Boolean getIsNullApps) {
         String username = SecurityUtils.getCurrentUserLogin().orElseThrow();
 
         Optional<User> userOptional = userRepository.findOneWithAuthoritiesByLogin(username);
@@ -83,15 +83,22 @@ public class AppointmentQueryService extends QueryService<Appointment> {
 
             if (!roleAdmin) {
                 Specification<Appointment> specification = createSpecification(criteria);
-                return specification.and(createdBySpecification(username));
+                if (getIsNullApps) {
+                    return specification.and(createdBySpecificationIsNullApps());
+                }
+                return specification.and(createdBySpecification(user.getId()));
             }
         }
 
         return createSpecification(criteria);
     }
 
-    protected Specification<Appointment> createdBySpecification(String username) {
-        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("createdBy"), username);
+    protected Specification<Appointment> createdBySpecificationIsNullApps() {
+        return (root, query, criteriaBuilder) -> criteriaBuilder.isNull(root.get(Appointment_.user));
+    }
+
+    protected Specification<Appointment> createdBySpecification(Long userId) {
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.join(Appointment_.user, JoinType.LEFT).get(User_.id), userId);
     }
 
     /**
