@@ -158,7 +158,26 @@ public class AppointmentResource {
     ) {
         log.debug("REST request to get Appointments by criteria: {}", criteria);
 
-        Page<AppointmentDTO> page = appointmentQueryService.findByCriteria(criteria, pageable);
+        Page<AppointmentDTO> page = appointmentQueryService.findByCriteria(criteria, pageable, false);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /appointments/empty} : get all empty the appointments.
+     *
+     * @param pageable the pagination information.
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of appointments in body.
+     */
+    @GetMapping("/empty")
+    public ResponseEntity<List<AppointmentDTO>> getAllEmptyAppointments(
+        AppointmentCriteria criteria,
+        @org.springdoc.core.annotations.ParameterObject Pageable pageable
+    ) {
+        log.debug("REST request to get Appointments by criteria: {}", criteria);
+
+        Page<AppointmentDTO> page = appointmentQueryService.findByCriteria(criteria, pageable, true);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
