@@ -1,0 +1,71 @@
+<div class="booking-modal" *ngIf="booked">
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <!-- Close Button -->
+      <div class="modal-close" (click)="cancel()">&times;</div>
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2>Booking Details</h2>
+        <div class="status-badge" [ngClass]="booked.status.toLowerCase()">{{ booked.status }}</div>
+      </div>
+
+      <!-- Employee Details -->
+      <div class="info-section with-divider">
+        <div class="employee-card">
+          <div class="avatar">{{ getInitials(booked.employee?.name) }}</div>
+          <div class="employee-info">
+            <h4>{{ booked.employee?.name }}</h4>
+            <p class="specialization">{{ booked.employee?.specialization }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <form name="editForm" [formGroup]="editForm" (ngSubmit)="confirmBooking()" role="form" novalidate>
+        <label class="form-label" jhiTranslate="appointmentApp.appointment.startTime" for="field_startTime">Start Time</label>
+        <div class="d-flex">
+          <input
+            id="field_startTime"
+            data-cy="startTime"
+            type="datetime-local"
+            class="form-control"
+            name="startTime"
+            formControlName="startTime"
+            [min]="minDate"
+            [max]="maxDate"
+            (input)="onDateTimeChange($event.target)"
+            required
+          />
+        </div>
+
+        <!-- Validation Messages -->
+        @if (editForm.get('startTime')?.invalid && (editForm.get('startTime')?.dirty || editForm.get('startTime')?.touched)) {
+          <div>
+            <!-- Required Error -->
+            @if (editForm.get('startTime')?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required"> This field is required. </small>
+            }
+
+            <!-- Time Window Error -->
+            @if (editForm.get('startTime')?.errors?.timeOutOfRange) {
+              <small class="form-text text-danger"> On the selected day, time must be between 08:00 and 18:00. </small>
+            }
+
+            <!-- Format Error -->
+            @if (editForm.get('startTime')?.errors?.datetimelocal) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.datetimelocal">
+                This field should be a date and time.
+              </small>
+            }
+          </div>
+        }
+      </form>
+      <!-- Actions -->
+      <div class="modal-actions">
+        <button class="btn secondary" (click)="cancel()">Cancel</button>
+        <button class="btn primary" (click)="confirmBooking()">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+</div>

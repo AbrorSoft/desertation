@@ -302,8 +302,6 @@ body {
 
   /* Optional: Style for appointment cards */
   .appointment-card {
-    background-color: #f8f9fa;
-    padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
   }
@@ -323,4 +321,26 @@ body {
       padding: 0.4rem 1rem;
     }
   }
+}
+.appointment-card {
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.object-fit-cover {
+  object-fit: cover;
 }

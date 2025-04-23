@@ -17,7 +17,7 @@ export class AppointmentServiceComponent implements OnInit {
     private appointmentService: AppointmentService,
   ) {}
   ngOnInit() {
-    this.appointmentService.query({ 'status.equals': 'BOOKED' }).subscribe(data => {
+    this.appointmentService.query({}).subscribe(data => {
       this.appointments = data.body;
     });
   }

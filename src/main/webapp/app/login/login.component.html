@@ -28,7 +28,17 @@
                 <label for="username" class="form-label" jhiTranslate="global.form.username.label">Username</label>
                 <div class="input-group">
                   <span class="input-group-text">
-                    <i class="bi bi-person-fill"></i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-person"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                      <path fill-rule="evenodd" d="M8 9a5 5 0 0 0-5 5v.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14a5 5 0 0 0-5-5z" />
+                    </svg>
                   </span>
                   <input
                     type="text"
@@ -49,7 +59,18 @@
                 <label for="password" class="form-label" jhiTranslate="login.form.password">Password</label>
                 <div class="input-group">
                   <span class="input-group-text">
-                    <i class="bi bi-lock-fill"></i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-lock"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 1a3 3 0 0 0-3 3v3H4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-1V4a3 3 0 0 0-3-3zm-2 6V4a2 2 0 0 1 4 0v3H6z"
+                      />
+                    </svg>
                   </span>
                   <input
                     [type]="showPassword ? 'text' : 'password'"
@@ -118,7 +139,8 @@
               <button
                 *ngIf="!loginDisabled; else countdownTemplate"
                 type="submit"
-                class="btn btn-primary btn-lg w-100 rounded-pill py-3"
+                style="background: #00c896; color: white"
+                class="btn btn-lg w-100 rounded-pill py-3"
                 [disabled]="loginForm.invalid"
                 data-cy="submit"
                 jhiTranslate="login.form.button"

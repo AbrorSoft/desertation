@@ -28,7 +28,7 @@
       "fieldName": "status",
       "fieldType": "AppointmentStatus",
       "fieldValidateRules": ["required"],
-      "fieldValues": "BOOKED,COMPLETED,CANCELLED"
+      "fieldValues": "BOOKED,COMPLETED,CANCELLED,ACTIVE"
     }
   ],
   "jpaMetamodelFiltering": true,

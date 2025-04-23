@@ -32,7 +32,8 @@ export class AppointmentService {
   protected http = inject(HttpClient);
   protected applicationConfigService = inject(ApplicationConfigService);
 
-  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/appointments');
+  resourceUrl = this.applicationConfigService.getEndpointFor('api/appointments');
+  protected resourceEmptyUrl = this.applicationConfigService.getEndpointFor('api/appointments/empty');
 
   create(appointment: NewAppointment): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(appointment);
@@ -65,6 +66,12 @@ export class AppointmentService {
     const options = createRequestOption(req);
     return this.http
       .get<RestAppointment[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map(res => this.convertResponseArrayFromServer(res)));
+  }
+  query1(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http
+      .get<RestAppointment[]>(this.resourceEmptyUrl, { params: options, observe: 'response' })
       .pipe(map(res => this.convertResponseArrayFromServer(res)));
   }
 

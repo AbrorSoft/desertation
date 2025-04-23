@@ -91,7 +91,7 @@ $navbar-brand-hover-color: darken($navbar-brand-color, 10%);
     &:hover,
     &:focus {
       color: $navbar-link-hover-color;
-      background-color: rgba($primary, 0.05); // Subtle background on hover
+      background-color: rgba($navbar-link-hover-color, 0.05); // Subtle background on hover
     }
   }
 
@@ -99,7 +99,7 @@ $navbar-brand-hover-color: darken($navbar-brand-color, 10%);
   .nav-item.active .nav-link {
     color: $navbar-link-active-color;
     font-weight: 600; // Bolder active link
-    background-color: rgba($primary, 0.1); // Slightly stronger background for active
+    background-color: rgba($navbar-link-hover-color, 0.1); // Slightly stronger background for active
   }
 }
 
@@ -131,16 +131,16 @@ $navbar-brand-hover-color: darken($navbar-brand-color, 10%);
 
     &:hover,
     &:focus {
-      background-color: rgba($primary, 0.1); // Use consistent hover background
-      color: $primary; // Highlight text on hover
+      background-color: rgba($navbar-link-hover-color, 0.1); // Use consistent hover background
+      color: $navbar-link-hover-color; // Highlight text on hover
 
       fa-icon {
-        color: $primary; // Highlight icon on hover
+        color: $navbar-link-hover-color; // Highlight icon on hover
       }
     }
 
     &.active {
-      background-color: $primary;
+      background-color: $navbar-link-hover-color;
       color: $white;
 
       fa-icon {
