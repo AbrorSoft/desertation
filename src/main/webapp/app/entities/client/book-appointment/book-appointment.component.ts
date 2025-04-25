@@ -29,7 +29,8 @@ export class BookAppointmentComponent implements OnInit {
     console.log(category);
     this.appointmentService.query1({ 'serviceProviderType.equals': category.toUpperCase() }).subscribe(
       data => {
-        this.appointments = data.body || []; // Update appointments, fallback to empty array if null
+        // @ts-ignore
+        this.appointments = data?.body.filter(data => !data?.user) || []; // Update appointments, fallback to empty array if null
       },
       error => {
         console.error('Error fetching appointments:', error);

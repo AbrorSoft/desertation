@@ -2,37 +2,37 @@
   <div class="row g-0">
     <div class="col-md-6 left-column">
       <div class="content-wrapper">
-        <h1 class="main-heading">
+        <h1 class="main-heading" jhiTranslate="global.home.title">
           Feeling overwhelmed? <br />
           Struggling to keep up with your schedule? <br />
           You're not alone. <br />
           we can help.
         </h1>
-        <p class="sub-text">Book with ease – invest in your time and wellbeing.</p>
-        <button class="btn btn-primary book-appointment-btn">Book An Appointment</button>
+        <p class="sub-text" jhiTranslate="global.home.sub-title">Book with ease – invest in your time and wellbeing.</p>
+        <button class="btn btn-primary book-appointment-btn" jhiTranslate="global.home.title-btn">Book An Appointment</button>
 
         <div class="quick-booking-section">
-          <h2>Quick Booking</h2>
+          <h2 jhiTranslate="global.home.quick">Quick Booking</h2>
           <div class="row g-3 align-items-center">
             <div class="col-md-4">
-              <label for="location" class="form-label">Location</label>
+              <label for="location" class="form-label" jhiTranslate="global.home.location">Location</label>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
                 <select class="form-select" id="location">
-                  <option selected>Port Harcourt, Nigeria</option>
+                  <option selected jhiTranslate="global.home.national">Port Harcourt, Nigeria</option>
                 </select>
                 <div class="row g-3 mt-3 align-items-center">
                   <div class="col-md-6">
                     <div class="btn-group" role="group" aria-label="Booking Type">
-                      <button type="button" class="btn btn-secondary active">Personal</button>
-                      <button type="button" class="btn btn-secondary">Group</button>
+                      <button type="button" class="btn btn-secondary active" jhiTranslate="global.home.person">Personal</button>
+                      <button type="button" class="btn btn-secondary" jhiTranslate="global.home.group">Group</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4 calendar-container">
-              <label for="location" class="form-label">Appointment Date</label>
+              <label for="location" class="form-label" jhiTranslate="global.home.date">Appointment Date</label>
               <!--              <label for="appointmentDate" class="form-label">Appointment Date</label>-->
               <!--              <div class="input-group">-->
 
@@ -55,12 +55,12 @@
               </div>
             </div>
             <div class="col-md-4 time-slot">
-              <label class="form-label">Time Slot</label>
+              <label class="form-label" jhiTranslate="global.home.time">Time Slot</label>
               <!--                <select class="form-select" id="timeSlot">-->
               <!--                  <option selected>16:00 Evening</option>-->
               <!--                </select>-->
               <div class="time-display mt-2">16:00</div>
-              <button class="btn btn-success mt-4 mb-3">Set</button>
+              <button class="btn btn-success mt-4 mb-3" jhiTranslate="global.home.set">Set</button>
             </div>
           </div>
         </div>
@@ -75,29 +75,29 @@
     >
       <div class="overlay"></div>
       <div class="right-content">
-        <h3>We Can Help If You Feel:</h3>
+        <h3 jhiTranslate="global.home.right-title">We Can Help If You Feel:</h3>
         <ul>
-          <li>Are you feeling anxious, stressed, or depressed?</li>
-          <li>Do you find it difficult to navigate life's challenges?</li>
-          <li>Are you struggling in your time management?</li>
+          <li jhiTranslate="global.home.right-sub-title">Are you feeling anxious, stressed, or depressed?</li>
+          <li jhiTranslate="global.home.right-sub-title1">Do you find it difficult to navigate life's challenges?</li>
+          <li jhiTranslate="global.home.right-sub-title2">Are you struggling in your time management?</li>
         </ul>
       </div>
     </div>
   </div>
 </div>
-<a href="#" class="complaints-link">Complaints?</a>
+<!--<a href="#" class="complaints-link">Complaints?</a>-->
 <!-- About Us Section -->
 <section class="section about-section">
   <div class="container">
-    <h2 class="section-title">About Us</h2>
+    <h2 class="section-title" jhiTranslate="global.home.about">About Us</h2>
     <div class="row">
       <div class="col-12">
-        <p>
+        <p jhiTranslate="global.home.about-title">
           At Quick Queue, we’re dedicated to making mental health support more accessible and convenient. Our platform connects you with
           compassionate, licensed therapists who are committed to helping you navigate life’s challenges, support personal growth, and
           strengthen your relationships.
         </p>
-        <p>
+        <p jhiTranslate="global.home.about-sub-title">
           We aim to create a safe, welcoming experience—from booking to session. Whether you're looking for one-on-one therapy, group
           support, or specialized care, our system makes it easy to find the right help that fits your needs.
         </p>
@@ -109,24 +109,33 @@
 <!-- Services Section -->
 <section class="section services-section">
   <div class="container">
-    <h2 class="section-title">Premium Services</h2>
+    <h2 class="section-title" jhiTranslate="global.home.section-title">Premium Services</h2>
     <div class="row g-4">
       <!-- GYM -->
       <div class="col-lg-4 col-md-6">
         <div class="card service-card">
           <img src="/api/placeholder/500/300" alt="Fitness Gym" />
           <div class="card-body">
-            <span class="service-tag">FITNESS</span>
-            <h5 class="card-title"><i class="fas fa-dumbbell"></i> Elite Fitness</h5>
-            <p class="card-text">
+            <span class="service-tag" jhiTranslate="global.home.section-fitness">FITNESS</span>
+            <h5 class="card-title">
+              <i class="fas fa-dumbbell"></i> <span jhiTranslate="global.home.section-fitness-title"> Elite Fitness</span>
+            </h5>
+            <p class="card-text" jhiTranslate="global.home.section-fitness-sub">
               State-of-the-art equipment and personalized training programs to help you achieve your fitness goals and transform your body.
             </p>
             <div class="service-features mb-4">
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Personal Training Sessions</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Group Fitness Classes</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Nutrition Consulting</div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i>
+                <span jhiTranslate="global.home.section-fitness-train"> Personal Training Sessions</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-fitness-group">Group Fitness Classes </span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-fitness-nutrition">Nutrition Consulting </span>
+              </div>
             </div>
-            <a href="#" class="btn">Book Now</a>
+            <a href="#" class="btn" jhiTranslate="global.home.section-btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -136,18 +145,27 @@
         <div class="card service-card">
           <img src="/api/placeholder/500/300" alt="Medical Clinic" />
           <div class="card-body">
-            <span class="service-tag">WELLNESS</span>
-            <h5 class="card-title"><i class="fas fa-heartbeat"></i> Wellness Clinic</h5>
-            <p class="card-text">
+            <span class="service-tag" jhiTranslate="global.home.section-clinic">WELLNESS</span>
+            <h5 class="card-title">
+              <i class="fas fa-heartbeat"></i> <span jhiTranslate="global.home.section-clinic-title">Wellness Clinic</span>
+            </h5>
+            <p class="card-text" jhiTranslate="global.home.section-clinic-sub">
               Comprehensive health services delivered by certified medical professionals, offering preventative care and specialized
               treatments.
             </p>
             <div class="service-features mb-4">
-              <div class="service-feature"><i class="fas fa-check-circle"></i> General Health Checkups</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Specialized Consultations</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Preventative Medicine</div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-clinic-checkups">General Health Checkups</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i>
+                <span jhiTranslate="global.home.section-clinic-consultations">Specialized Consultations</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-clinic-prevention">Preventative Medicine</span>
+              </div>
             </div>
-            <a href="#" class="btn">Book Now</a>
+            <a href="#" class="btn" jhiTranslate="global.home.section-btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -157,17 +175,23 @@
         <div class="card service-card">
           <img src="/api/placeholder/500/300" alt="Luxury Spa" />
           <div class="card-body">
-            <span class="service-tag">RELAXATION</span>
-            <h5 class="card-title"><i class="fas fa-spa"></i> Luxury Spa</h5>
-            <p class="card-text">
+            <span class="service-tag" jhiTranslate="global.home.section-spa">RELAXATION</span>
+            <h5 class="card-title"><i class="fas fa-spa"></i> <span jhiTranslate="global.home.section-spa-title">Luxury Spa</span></h5>
+            <p class="card-text" jhiTranslate="global.home.section-spa-sub">
               Immerse yourself in tranquility with our premium spa treatments, designed to relax, rejuvenate and restore your mind and body.
             </p>
             <div class="service-features mb-4">
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Massage Therapy</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Facial Treatments</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Aromatherapy Sessions</div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-spa-massage">Massage Therapy</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-spa-facial">Facial Treatments</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-spa-aroma">Aromatherapy Sessions</span>
+              </div>
             </div>
-            <a href="#" class="btn">Book Now</a>
+            <a href="#" class="btn" jhiTranslate="global.home.section-btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -177,18 +201,26 @@
         <div class="card service-card">
           <img src="/api/placeholder/500/300" alt="Modern Barbershop" />
           <div class="card-body">
-            <span class="service-tag">GROOMING</span>
-            <h5 class="card-title"><i class="fas fa-cut"></i> Modern Barbershop</h5>
-            <p class="card-text">
+            <span class="service-tag" jhiTranslate="global.home.section-barber">GROOMING</span>
+            <h5 class="card-title">
+              <i class="fas fa-cut"></i> <span jhiTranslate="global.home.section-barber-title">Modern Barbershop</span>
+            </h5>
+            <p class="card-text" jhiTranslate="global.home.section-barber-sub">
               Experience the art of precision haircuts and premium grooming services delivered by master barbers in a classic yet
               contemporary setting.
             </p>
             <div class="service-features mb-4">
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Precision Haircuts</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Beard Grooming</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Hot Towel Shaves</div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-barber-haircuts">Precision Haircuts</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-barber-beard">Beard Grooming</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-barber-shaves">Hot Towel Shaves</span>
+              </div>
             </div>
-            <a href="#" class="btn">Book Now</a>
+            <a href="#" class="btn" jhiTranslate="global.home.section-btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -198,18 +230,26 @@
         <div class="card service-card">
           <img src="/api/placeholder/500/300" alt="Beauty Salon" />
           <div class="card-body">
-            <span class="service-tag">BEAUTY</span>
-            <h5 class="card-title"><i class="fas fa-magic"></i> Beauty Salon</h5>
-            <p class="card-text">
+            <span class="service-tag" jhiTranslate="global.home.section-salon">BEAUTY</span>
+            <h5 class="card-title">
+              <i class="fas fa-magic"></i> <span jhiTranslate="global.home.section-salon-title">Beauty Salon</span>
+            </h5>
+            <p class="card-text" jhiTranslate="global.home.section-salon-sub">
               Transform your look with our complete range of premium hair styling, coloring, and beauty treatments by award-winning
               stylists.
             </p>
             <div class="service-features mb-4">
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Hair Styling & Coloring</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Manicure & Pedicure</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Makeup Services</div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-salon-styling">Hair Styling & Coloring</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-salon-nails">Manicure & Pedicure</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-salon-makeup">Makeup Services</span>
+              </div>
             </div>
-            <a href="#" class="btn">Book Now</a>
+            <a href="#" class="btn" jhiTranslate="global.home.section-btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -219,17 +259,26 @@
         <div class="card service-card">
           <img src="/api/placeholder/500/300" alt="Premium Membership" />
           <div class="card-body">
-            <span class="service-tag">EXCLUSIVE</span>
-            <h5 class="card-title"><i class="fas fa-crown"></i> Premium Membership</h5>
-            <p class="card-text">
+            <span class="service-tag" jhiTranslate="global.home.section-membership">EXCLUSIVE</span>
+            <h5 class="card-title">
+              <i class="fas fa-crown"></i> <span jhiTranslate="global.home.section-membership-title">Premium Membership</span>
+            </h5>
+            <p class="card-text" jhiTranslate="global.home.section-membership-sub">
               Enjoy exclusive access to all our premium services with priority bookings, special discounts, and VIP treatment.
             </p>
             <div class="service-features mb-4">
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Access to All Services</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Priority Scheduling</div>
-              <div class="service-feature"><i class="fas fa-check-circle"></i> Exclusive Member Events</div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-membership-access">Access to All Services</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i> <span jhiTranslate="global.home.section-membership-priority">Priority Scheduling</span>
+              </div>
+              <div class="service-feature">
+                <i class="fas fa-check-circle"></i>
+                <span jhiTranslate="global.home.section-membership-events">Exclusive Member Events</span>
+              </div>
             </div>
-            <a href="#" class="btn">Join Now</a>
+            <a href="#" class="btn" jhiTranslate="global.home.section-join-btn">Join Now</a>
           </div>
         </div>
       </div>
@@ -240,60 +289,24 @@
 <!-- Testimonials Section -->
 <section class="section testimonials-section">
   <div class="container">
-    <h2 class="section-title">What Our Clients Say</h2>
+    <h2 class="section-title">{{ 'global.home.testimonials.title' | translate }}</h2>
     <div class="row">
       <div class="col-md-4">
         <div class="testimonial">
-          <p>"Clarity Therapy helped me find peace during a difficult time. My therapist was incredibly supportive and understanding."</p>
-          <p class="author">— Sarah M.</p>
+          <p>{{ 'global.home.testimonials.quote1' | translate }}</p>
+          <p class="author">{{ 'global.home.testimonials.author1' | translate }}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="testimonial">
-          <p>"The group therapy sessions gave me a sense of community and hope. I highly recommend Clarity Therapy!"</p>
-          <p class="author">— James K.</p>
+          <p>{{ 'global.home.testimonials.quote2' | translate }}</p>
+          <p class="author">{{ 'global.home.testimonials.author2' | translate }}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="testimonial">
-          <p>"Online therapy was a game-changer for me. Flexible and effective, it fit perfectly into my busy schedule."</p>
-          <p class="author">— Emily R.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section class="section contact-section">
-  <div class="container">
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="contact-form">
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Your Name" required />
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Your Email" required />
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="contact-info">
-          <p><i class="bi bi-geo-alt"></i> 123 Wellness Avenue, Port Harcourt, Nigeria</p>
-          <p><i class="bi bi-telephone"></i> +234 123 456 7890</p>
-          <p><i class="bi bi-envelope"></i> support.com</p>
-          <p><i class="bi bi-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+          <p>{{ 'global.home.testimonials.quote3' | translate }}</p>
+          <p class="author">{{ 'global.home.testimonials.author3' | translate }}</p>
         </div>
       </div>
     </div>

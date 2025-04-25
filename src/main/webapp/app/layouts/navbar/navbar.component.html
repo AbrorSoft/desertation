@@ -33,19 +33,6 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a class="nav-link" routerLink="/appointment-service" (click)="collapseNavbar()">
-            <span>
-              <fa-icon icon="calendar-alt" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="appointment-service">Appointment Service</span>
-            </span>
-          </a>
-        </li>
-        <li
-          *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']"
-          class="nav-item"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
           <a class="nav-link" routerLink="/book-appointment" (click)="collapseNavbar()">
             <span>
               <fa-icon icon="calendar-alt" [fixedWidth]="true"></fa-icon>
@@ -53,6 +40,22 @@
             </span>
           </a>
         </li>
+        @if (!this.account()?.authorities?.includes('ROLE_ADMIN')) {
+          <li
+            *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']"
+            class="nav-item"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" routerLink="/appointment-service" (click)="collapseNavbar()">
+              <span>
+                <fa-icon icon="calendar-alt" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="appointment-service">Appointment Service</span>
+              </span>
+            </a>
+          </li>
+        }
+
         @if (account() !== null) {
           <li
             *jhiHasAnyAuthority="'ROLE_ADMIN'"

@@ -43,6 +43,7 @@ export default class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log();
     this.entitiesNavbarItems = EntityNavbarItems;
     this.profileService.getProfileInfo().subscribe(profileInfo => {
       this.inProduction = profileInfo.inProduction;
