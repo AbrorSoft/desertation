@@ -1,4 +1,21 @@
 {
   "appointment-service": "My Appointments",
-  "book-appointment": "Services"
+  "book-appointment": "Services",
+  "book-appointment-title": "Save Time — Schedule Your Appointment Today!",
+  "book-appointment-sub-title": "Book Your Appointment",
+  "book-appointment-category": "Browse by categories",
+  "book-appointment-gym": "Gym",
+  "book-appointment-clinic": "Clinic",
+  "book-appointment-barbershop": "Barbershop",
+  "book-appointment-salon": "Salon",
+  "book-appointment-spa": "Spa",
+  "book-appointment-status": "Status:",
+  "book-appointment-date": "Date:",
+  "book-appointment-time": "Time:",
+  "book-appointment-room": "Room:",
+  "book-appointment-contact": "Contact Info:",
+  "book-appointment-address": "Address:",
+  "book-appointment-employee": "Employee:",
+  "book-appointment-btn": "Book Appointment",
+  "book-appointment-no-appointment": "No appointments found for this category."
 }

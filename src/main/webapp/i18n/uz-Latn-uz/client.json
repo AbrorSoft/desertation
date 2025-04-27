@@ -1,4 +1,21 @@
 {
   "appointment-service": "Mening uchrashuvlarim",
-  "book-appointment": "Xizmatlar"
+  "book-appointment": "Xizmatlar",
+  "book-appointment-title": "Vaqtingizni tejang — Bugunoq uchrashuvingizni bron qiling!",
+  "book-appointment-sub-title": "Uchrashuvni bron qiling",
+  "book-appointment-category": "Kategoriyalar bo'yicha ko'rish",
+  "book-appointment-gym": "Sport zali",
+  "book-appointment-clinic": "Klinika",
+  "book-appointment-barbershop": "Sartaroshxona",
+  "book-appointment-salon": "Salon",
+  "book-appointment-spa": "Spa",
+  "book-appointment-status": "Holat:",
+  "book-appointment-date": "Sana:",
+  "book-appointment-time": "Vaqt:",
+  "book-appointment-room": "Xona:",
+  "book-appointment-contact": "Aloqa ma'lumotlari:",
+  "book-appointment-address": "Manzil:",
+  "book-appointment-employee": "Xodim:",
+  "book-appointment-btn": "Uchrashuvni bron qilish",
+  "book-appointment-no-appointment": "Bu kategoriya uchun uchrashuvlar topilmadi."
 }

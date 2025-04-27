@@ -1,46 +1,24 @@
 <main class="container-fluid">
   <section class="hero-banner rounded-4 text-white d-flex align-items-center">
     <div class="hero-content text-center mx-auto">
-      <h1 class="display-4 fw-bold mb-3">Summer Arrival of Outfit</h1>
-      <p class="lead mb-4">Discover quality fashion that reflects your style and makes everyday enjoyable.</p>
-      <button class="btn btn-light explore-btn rounded-pill px-4 py-2 fw-medium">
-        EXPLORE PRODUCT <i class="fas fa-arrow-right ms-2"></i>
-      </button>
-    </div>
-  </section>
-
-  <section class="promo-section">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="promo-card rounded-4 overflow-hidden">
-          <div class="card-content">
-            <h3 class="fw-semibold">Where dreams meet couture</h3>
-            <a href="#" class="shop-now-btn">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="promo-card promo-card-alt rounded-4 overflow-hidden">
-          <div class="card-content">
-            <h3 class="fw-semibold">Enchanting styles for every woman</h3>
-            <a href="#" class="shop-now-btn">Shop Now</a>
-          </div>
-        </div>
-      </div>
+      <h1 class="display-4 fw-bold mb-3" jhiTranslate="book-appointment-title">Save Time — Schedule Your Appointment Today!</h1>
+      <p class="lead mb-4" jhiTranslate="book-appointment-sub-title">Book Your Appointment</p>
     </div>
   </section>
 
   <section class="categories-section pt-3">
-    <h2 class="fw-bold mb-4">Browse by categories</h2>
+    <h2 class="fw-bold mb-4" jhiTranslate="book-appointment-category">Browse by categories</h2>
     <div class="category-filters d-flex flex-wrap justify-content-center">
       <button
         class="btn filter-btn rounded-pill me-2 mb-2 px-4"
+        jhiTranslate="book-appointment-gym"
         [ngClass]="{ active: selectedCategory === 'Gym' }"
         (click)="filterAppointments('Gym')"
       >
         Gym
       </button>
       <button
+        jhiTranslate="book-appointment-clinic"
         class="btn filter-btn rounded-pill me-2 mb-2 px-4"
         [ngClass]="{ active: selectedCategory === 'Clinic' }"
         (click)="filterAppointments('Clinic')"
@@ -48,6 +26,7 @@
         Clinic
       </button>
       <button
+        jhiTranslate="book-appointment-barbershop"
         class="btn filter-btn rounded-pill me-2 mb-2 px-4"
         [ngClass]="{ active: selectedCategory === 'Barbershop' }"
         (click)="filterAppointments('Barbershop')"
@@ -55,6 +34,7 @@
         Barbershop
       </button>
       <button
+        jhiTranslate="book-appointment-salon"
         class="btn filter-btn rounded-pill me-2 mb-2 px-4"
         [ngClass]="{ active: selectedCategory === 'Salon' }"
         (click)="filterAppointments('Salon')"
@@ -62,6 +42,7 @@
         Salon
       </button>
       <button
+        jhiTranslate="book-appointment-spa"
         class="btn filter-btn rounded-pill me-2 mb-2 px-4"
         [ngClass]="{ active: selectedCategory === 'Spa' }"
         (click)="filterAppointments('Spa')"
@@ -86,22 +67,28 @@
             <p class="text-muted mb-2">{{ appointment.serviceProvider?.type }}</p>
 
             <ul class="list-unstyled small">
-              <li><strong>Status:</strong> {{ appointment.status }}</li>
-              <li><strong>Date:</strong> {{ appointment.date }}</li>
-              <li><strong>Time:</strong> {{ appointment.startTime | date: 'shortTime' }}</li>
-              <li><strong>Room:</strong> {{ appointment.room?.roomNumber }}</li>
-              <li><strong>Contact Info:</strong> {{ appointment.serviceProvider?.contactInfo }}</li>
-              <li><strong>Address:</strong> {{ appointment.serviceProvider?.address }}</li>
-              <li><strong>Employee:</strong> {{ appointment.employee?.name }} ({{ appointment.employee?.specialization }})</li>
+              <li><strong jhiTranslate="book-appointment-status">Status:</strong> {{ appointment.status }}</li>
+              <li><strong jhiTranslate="book-appointment-date">Date:</strong> {{ appointment.date }}</li>
+              <li><strong jhiTranslate="book-appointment-time">Time:</strong> {{ appointment.startTime | date: 'shortTime' }}</li>
+              <li><strong jhiTranslate="book-appointment-room">Room:</strong> {{ appointment.room?.roomNumber }}</li>
+              <li><strong jhiTranslate="book-appointment-contact">Contact Info:</strong> {{ appointment.serviceProvider?.contactInfo }}</li>
+              <li><strong jhiTranslate="book-appointment-address">Address:</strong> {{ appointment.serviceProvider?.address }}</li>
+              <li>
+                <strong jhiTranslate="book-appointment-employee">Employee:</strong> {{ appointment.employee?.name }} ({{
+                  appointment.employee?.specialization
+                }})
+              </li>
             </ul>
 
-            <button class="btn btn-outline-primary w-100 mt-2" (click)="bookModalOpen(appointment)">Book Appointment</button>
+            <button class="btn btn-outline-primary w-100 mt-2" (click)="bookModalOpen(appointment)" jhiTranslate="book-appointment-btn">
+              Book Appointment
+            </button>
           </div>
         </div>
       </div>
     </div>
     <ng-template #noAppointments>
-      <p>No appointments found for this category.</p>
+      <p jhiTranslate="book-appointment-no-appointment">No appointments found for this category.</p>
     </ng-template>
   </section>
 </main>

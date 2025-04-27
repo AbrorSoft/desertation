@@ -22,8 +22,7 @@ body {
 
 .hero-banner {
   min-height: 50vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.ytimg.com/vi/H0MGF4QBnGU/maxresdefault.jpg');
   background-size: cover;
   background-position: center;
   padding: 4rem 1rem;
@@ -164,9 +163,9 @@ body {
 }
 
 .category-filters .filter-btn {
-  background-color: #30363c;
-  border: 1px solid #1b1f22;
-  color: #6c757d;
+  background-color: transparent;
+  border: 1px solid #01b185;
+  color: #01b185;
   font-weight: 500;
   font-size: 0.95rem;
   padding: 0.5rem 1.5rem;
@@ -177,14 +176,14 @@ body {
 }
 
 .category-filters .filter-btn:hover {
-  background-color: #212529;
-  color: #212529;
+  background-color: #01b185;
+  color: white;
 }
 
 .category-filters .filter-btn.active {
-  background-color: #212529;
-  color: #ffffff;
-  border-color: #212529;
+  background-color: #01b185;
+  color: white;
+  border-color: #01b185;
 }
 
 .category-filters .filter-btn:focus {

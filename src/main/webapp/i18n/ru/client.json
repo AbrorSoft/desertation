@@ -1,4 +1,21 @@
 {
   "appointment-service": "Мои встречи",
-  "book-appointment": "Услуги"
+  "book-appointment": "Услуги",
+  "book-appointment-title": "Сэкономьте время — запишитесь на прием уже сегодня!",
+  "book-appointment-sub-title": "Запишитесь на прием",
+  "book-appointment-category": "Просмотр по категориям",
+  "book-appointment-gym": "Тренажерный зал",
+  "book-appointment-clinic": "Клиника",
+  "book-appointment-barbershop": "Барбершоп",
+  "book-appointment-salon": "Салон",
+  "book-appointment-spa": "Спа",
+  "book-appointment-status": "Статус:",
+  "book-appointment-date": "Дата:",
+  "book-appointment-time": "Время:",
+  "book-appointment-room": "Кабинет:",
+  "book-appointment-contact": "Контактная информация:",
+  "book-appointment-address": "Адрес:",
+  "book-appointment-employee": "Сотрудник:",
+  "book-appointment-btn": "Записаться",
+  "book-appointment-no-appointment": "Нет доступных записей в этой категории."
 }
