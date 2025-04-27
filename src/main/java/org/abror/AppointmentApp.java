@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Optional;
 import org.abror.config.ApplicationProperties;
 import org.abror.config.CRLFLogConverter;
+import org.abror.config.StorageProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ import tech.jhipster.config.DefaultProfileUtil;
 import tech.jhipster.config.JHipsterConstants;
 
 @SpringBootApplication
-@EnableConfigurationProperties({ LiquibaseProperties.class, ApplicationProperties.class })
+@EnableConfigurationProperties({ LiquibaseProperties.class, ApplicationProperties.class, StorageProperties.class })
 public class AppointmentApp {
 
     private static final Logger log = LoggerFactory.getLogger(AppointmentApp.class);

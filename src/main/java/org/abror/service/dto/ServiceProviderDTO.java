@@ -26,6 +26,10 @@ public class ServiceProviderDTO implements Serializable {
 
     private String contactInfo;
 
+    private String imageKey;
+
+    private byte[] imageFile;
+
     public Long getId() {
         return id;
     }
@@ -72,6 +76,22 @@ public class ServiceProviderDTO implements Serializable {
 
     public void setContactInfo(String contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public String getImageKey() {
+        return imageKey;
+    }
+
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
+    }
+
+    public byte[] getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(byte[] imageFile) {
+        this.imageFile = imageFile;
     }
 
     @Override
