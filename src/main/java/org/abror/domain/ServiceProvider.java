@@ -40,6 +40,9 @@ public class ServiceProvider implements Serializable {
     @Column(name = "contact_info")
     private String contactInfo;
 
+    @Column(name = "image_key")
+    private String imageKey;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -118,6 +121,19 @@ public class ServiceProvider implements Serializable {
 
     public void setContactInfo(String contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public String getImageKey() {
+        return imageKey;
+    }
+
+    public ServiceProvider imageKey(String imageKey) {
+        this.setImageKey(imageKey);
+        return this;
+    }
+
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
