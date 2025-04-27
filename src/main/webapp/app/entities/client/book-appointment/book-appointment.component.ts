@@ -7,12 +7,13 @@ import { RoomDeleteDialogComponent } from '../../room/delete/room-delete-dialog.
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookedModalComponent } from './booked-modal/booked-modal.component';
 import TranslateDirective from '../../../shared/language/translate.directive';
+import SharedModule from '../../../shared/shared.module';
 
 @Component({
   templateUrl: 'book-appointment.component.html',
   standalone: true,
   styleUrl: 'book-appointment.component.scss',
-  imports: [DatePipe, NgClass, NgIf, NgForOf, TranslateDirective],
+  imports: [DatePipe, NgClass, NgIf, NgForOf, TranslateDirective, SharedModule],
 })
 export class BookAppointmentComponent implements OnInit {
   protected modalService = inject(NgbModal);

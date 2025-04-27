@@ -17,5 +17,7 @@
   "book-appointment-address": "Адрес:",
   "book-appointment-employee": "Сотрудник:",
   "book-appointment-btn": "Записаться",
-  "book-appointment-no-appointment": "Нет доступных записей в этой категории."
+  "book-appointment-no-appointment": "Нет доступных записей в этой категории.",
+  "BOOKED": "Забронировано",
+  "ACTIVE": "Активный"
 }

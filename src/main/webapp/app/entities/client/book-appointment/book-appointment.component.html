@@ -67,7 +67,7 @@
             <p class="text-muted mb-2">{{ appointment.serviceProvider?.type }}</p>
 
             <ul class="list-unstyled small">
-              <li><strong jhiTranslate="book-appointment-status">Status:</strong> {{ appointment.status }}</li>
+              <li><strong jhiTranslate="book-appointment-status">Status:</strong> {{ appointment.status | translate }}</li>
               <li><strong jhiTranslate="book-appointment-date">Date:</strong> {{ appointment.date }}</li>
               <li><strong jhiTranslate="book-appointment-time">Time:</strong> {{ appointment.startTime | date: 'shortTime' }}</li>
               <li><strong jhiTranslate="book-appointment-room">Room:</strong> {{ appointment.room?.roomNumber }}</li>

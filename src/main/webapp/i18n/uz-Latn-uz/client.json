@@ -17,5 +17,7 @@
   "book-appointment-address": "Manzil:",
   "book-appointment-employee": "Xodim:",
   "book-appointment-btn": "Uchrashuvni bron qilish",
-  "book-appointment-no-appointment": "Bu kategoriya uchun uchrashuvlar topilmadi."
+  "book-appointment-no-appointment": "Bu kategoriya uchun uchrashuvlar topilmadi.",
+  "BOOKED": "Bron qilingan",
+  "ACTIVE": "Faol"
 }
