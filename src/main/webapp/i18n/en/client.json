@@ -19,5 +19,10 @@
   "book-appointment-btn": "Book Appointment",
   "book-appointment-no-appointment": "No appointments found for this category.",
   "BOOKED": "Booked",
-  "ACTIVE": "Active"
+  "ACTIVE": "Active",
+  "CLINIC": "Clinic",
+  "GYM": "Gym",
+  "BARBERSHOP": "Barbershop",
+  "SALON": "Salon",
+  "SPA": "Spa"
 }

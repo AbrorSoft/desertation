@@ -22,6 +22,8 @@ type ServiceProviderFormGroupContent = {
   type: FormControl<IServiceProvider['type']>;
   address: FormControl<IServiceProvider['address']>;
   contactInfo: FormControl<IServiceProvider['contactInfo']>;
+  imageKey: FormControl<IServiceProvider['imageKey']>;
+  imageFile: FormControl<IServiceProvider['imageFile']>;
 };
 
 export type ServiceProviderFormGroup = FormGroup<ServiceProviderFormGroupContent>;
@@ -49,6 +51,10 @@ export class ServiceProviderFormService {
       }),
       address: new FormControl(serviceProviderRawValue.address),
       contactInfo: new FormControl(serviceProviderRawValue.contactInfo),
+      imageKey: new FormControl(serviceProviderRawValue.imageKey),
+      imageFile: new FormControl(serviceProviderRawValue.imageFile, {
+        validators: [Validators.required],
+      }),
     });
   }
 

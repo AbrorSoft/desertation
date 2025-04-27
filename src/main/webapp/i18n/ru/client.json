@@ -19,5 +19,10 @@
   "book-appointment-btn": "Записаться",
   "book-appointment-no-appointment": "Нет доступных записей в этой категории.",
   "BOOKED": "Забронировано",
-  "ACTIVE": "Активный"
+  "ACTIVE": "Активный",
+  "CLINIC": "Клиника",
+  "GYM": "Тренажёрный зал",
+  "BARBERSHOP": "Барбершоп",
+  "SALON": "Салон красоты",
+  "SPA": "СПА"
 }

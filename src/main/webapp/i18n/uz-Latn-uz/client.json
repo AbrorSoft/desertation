@@ -19,5 +19,10 @@
   "book-appointment-btn": "Uchrashuvni bron qilish",
   "book-appointment-no-appointment": "Bu kategoriya uchun uchrashuvlar topilmadi.",
   "BOOKED": "Bron qilingan",
-  "ACTIVE": "Faol"
+  "ACTIVE": "Faol",
+  "CLINIC": "Klinika",
+  "GYM": "Sport zali",
+  "BARBERSHOP": "Barbershop",
+  "SALON": "Goʻzallik saloni",
+  "SPA": "SPA"
 }

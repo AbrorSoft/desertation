@@ -6,6 +6,8 @@ export interface IServiceProvider {
   type?: keyof typeof ServiceProviderType | null;
   address?: string | null;
   contactInfo?: string | null;
+  imageKey?: any;
+  imageFile?: BinaryData | null;
 }
 
 export type NewServiceProvider = Omit<IServiceProvider, 'id'> & { id: null };

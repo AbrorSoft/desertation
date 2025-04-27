@@ -6,8 +6,8 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h2>Booking Details</h2>
-        <div class="status-badge" [ngClass]="booked.status.toLowerCase()">{{ booked.status }}</div>
+        <h2 jhiTranslate="book-appointment-modal-title">Booking Details</h2>
+        <div class="status-badge" [ngClass]="booked.status.toLowerCase()">{{ booked.status | translate }}</div>
       </div>
 
       <!-- Employee Details -->
@@ -16,7 +16,7 @@
           <div class="avatar">{{ getInitials(booked.employee?.name) }}</div>
           <div class="employee-info">
             <h4>{{ booked.employee?.name }}</h4>
-            <p class="specialization">{{ booked.employee?.specialization }}</p>
+            <p class="specialization">{{ booked.employee?.specialization | translate }}</p>
           </div>
         </div>
       </div>

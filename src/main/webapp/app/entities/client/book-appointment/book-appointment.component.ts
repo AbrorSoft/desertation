@@ -26,6 +26,18 @@ export class BookAppointmentComponent implements OnInit {
       this.filterAppointments(this.selectedCategory); // Initial query with default category
     });
   }
+  /**
+   *
+   * @param imageKey
+   */
+  getImageStable(imageKey?: string | null) {
+    return 'api/file/' + imageKey;
+  }
+
+  /**
+   *
+   * @param category
+   */
   filterAppointments(category: string) {
     this.selectedCategory = category; // Update the selected category
     console.log(category);

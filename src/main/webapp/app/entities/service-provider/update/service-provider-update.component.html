@@ -69,6 +69,25 @@
             formControlName="contactInfo"
           />
         </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_imageKey" jhiTranslate="auctionApp.product.imageKey">Image key</label>
+          <div class="d-flex flex-column">
+            <input
+              id="field_imageKey"
+              data-cy="imageKey"
+              type="file"
+              accept="image/*"
+              class="form-control"
+              name="imageKey"
+              (change)="setFileData($event)"
+              placeholder="Select file"
+            />
+            <small class="text-muted mt-1" *ngIf="editForm.get('imageKey')?.value">
+              Selected file: {{ editForm.get('imageKey')?.value }}
+            </small>
+          </div>
+        </div>
       </div>
 
       <div>

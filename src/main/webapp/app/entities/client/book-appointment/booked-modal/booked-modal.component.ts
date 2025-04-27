@@ -10,11 +10,12 @@ import { AppointmentService } from '../../../appointment/service/appointment.ser
 import { HttpClient } from '@angular/common/http';
 import { Account } from '../../../../core/auth/account.model';
 import { AccountService } from '../../../../core/auth/account.service';
+import SharedModule from '../../../../shared/shared.module';
 
 @Component({
   templateUrl: 'booked-modal.component.html',
   styleUrl: 'booked-modal.component.scss',
-  imports: [NgIf, NgClass, FormsModule, ReactiveFormsModule, TranslateDirective],
+  imports: [NgIf, NgClass, FormsModule, ReactiveFormsModule, TranslateDirective, SharedModule],
   standalone: true,
 })
 export class BookedModalComponent {
