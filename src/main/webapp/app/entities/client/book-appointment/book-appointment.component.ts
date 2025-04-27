@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookedModalComponent } from './booked-modal/booked-modal.component';
 import TranslateDirective from '../../../shared/language/translate.directive';
 import SharedModule from '../../../shared/shared.module';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   templateUrl: 'book-appointment.component.html',
@@ -17,9 +18,9 @@ import SharedModule from '../../../shared/shared.module';
 })
 export class BookAppointmentComponent implements OnInit {
   protected modalService = inject(NgbModal);
+  protected http = inject(HttpClient);
   appointments: any[] = [];
   selectedCategory: string = 'Gym'; // Default category
-
   constructor(private appointmentService: AppointmentService) {}
   ngOnInit() {
     this.appointmentService.query1({ 'status.equals:': 'GYM' }).subscribe(data => {
@@ -30,8 +31,22 @@ export class BookAppointmentComponent implements OnInit {
    *
    * @param imageKey
    */
-  getImageStable(imageKey?: string | null) {
-    return 'api/file/' + imageKey;
+  imageSrcMap: { [key: string]: string } = {}; // store generated image URLs for each imageKey
+
+  getImageStable(imageKey?: string | null): void {
+    if (!imageKey) {
+      return;
+    }
+
+    // If already downloaded, do nothing
+    if (this.imageSrcMap[imageKey]) {
+      return;
+    }
+
+    this.http.get('api/file/' + imageKey, { responseType: 'blob' }).subscribe((blob: Blob) => {
+      const objectUrl = URL.createObjectURL(blob);
+      this.imageSrcMap[imageKey] = objectUrl;
+    });
   }
 
   /**

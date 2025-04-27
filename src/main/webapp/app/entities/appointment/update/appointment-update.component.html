@@ -152,24 +152,24 @@
           </select>
         </div>
 
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="appointmentApp.appointment.serviceForCustomer" for="field_serviceForCustomer"
-            >Service For Customer</label
-          >
-          <select
-            class="form-control"
-            id="field_serviceForCustomer"
-            data-cy="serviceForCustomer"
-            name="serviceForCustomer"
-            formControlName="serviceForCustomer"
-            [compareWith]="compareServiceForCustomer"
-          >
-            <option [ngValue]="null"></option>
-            @for (serviceForCustomerOption of serviceForCustomersSharedCollection; track $index) {
-              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.name }}</option>
-            }
-          </select>
-        </div>
+        <!--        <div class="mb-3">-->
+        <!--          <label class="form-label" jhiTranslate="appointmentApp.appointment.serviceForCustomer" for="field_serviceForCustomer"-->
+        <!--            >Service For Customer</label-->
+        <!--          >-->
+        <!--          <select-->
+        <!--            class="form-control"-->
+        <!--            id="field_serviceForCustomer"-->
+        <!--            data-cy="serviceForCustomer"-->
+        <!--            name="serviceForCustomer"-->
+        <!--            formControlName="serviceForCustomer"-->
+        <!--            [compareWith]="compareServiceForCustomer"-->
+        <!--          >-->
+        <!--            <option [ngValue]="null"></option>-->
+        <!--            @for (serviceForCustomerOption of serviceForCustomersSharedCollection; track $index) {-->
+        <!--              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.name }}</option>-->
+        <!--            }-->
+        <!--          </select>-->
+        <!--        </div>-->
 
         <div class="mb-3">
           <label class="form-label" jhiTranslate="appointmentApp.appointment.room" for="field_room">Room</label>

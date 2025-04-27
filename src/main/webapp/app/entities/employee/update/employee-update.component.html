@@ -77,39 +77,39 @@
           </select>
         </div>
 
-        <div class="mb-3">
-          <label jhiTranslate="appointmentApp.employee.servicesForCustomer" for="field_servicesForCustomers">Services For Customer</label>
-          <select
-            class="form-control"
-            id="field_servicesForCustomers"
-            data-cy="servicesForCustomer"
-            multiple
-            name="servicesForCustomers"
-            formControlName="servicesForCustomers"
-            [compareWith]="compareServiceForCustomer"
-          >
-            @for (serviceForCustomerOption of serviceForCustomersSharedCollection; track $index) {
-              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.name }}</option>
-            }
-          </select>
-        </div>
+        <!--        <div class="mb-3">-->
+        <!--          <label jhiTranslate="appointmentApp.employee.servicesForCustomer" for="field_servicesForCustomers">Services For Customer</label>-->
+        <!--          <select-->
+        <!--            class="form-control"-->
+        <!--            id="field_servicesForCustomers"-->
+        <!--            data-cy="servicesForCustomer"-->
+        <!--            multiple-->
+        <!--            name="servicesForCustomers"-->
+        <!--            formControlName="servicesForCustomers"-->
+        <!--            [compareWith]="compareServiceForCustomer"-->
+        <!--          >-->
+        <!--            @for (serviceForCustomerOption of serviceForCustomersSharedCollection; track $index) {-->
+        <!--              <option [ngValue]="serviceForCustomerOption">{{ serviceForCustomerOption.name }}</option>-->
+        <!--            }-->
+        <!--          </select>-->
+        <!--        </div>-->
 
-        <div class="mb-3">
-          <label jhiTranslate="appointmentApp.employee.services" for="field_services">Services</label>
-          <select
-            class="form-control"
-            id="field_services"
-            data-cy="services"
-            multiple
-            name="services"
-            formControlName="services"
-            [compareWith]="compareService"
-          >
-            @for (serviceOption of servicesSharedCollection; track $index) {
-              <option [ngValue]="serviceOption">{{ serviceOption.id }}</option>
-            }
-          </select>
-        </div>
+        <!--        <div class="mb-3">-->
+        <!--          <label jhiTranslate="appointmentApp.employee.services" for="field_services">Services</label>-->
+        <!--          <select-->
+        <!--            class="form-control"-->
+        <!--            id="field_services"-->
+        <!--            data-cy="services"-->
+        <!--            multiple-->
+        <!--            name="services"-->
+        <!--            formControlName="services"-->
+        <!--            [compareWith]="compareService"-->
+        <!--          >-->
+        <!--            @for (serviceOption of servicesSharedCollection; track $index) {-->
+        <!--              <option [ngValue]="serviceOption">{{ serviceOption.id }}</option>-->
+        <!--            }-->
+        <!--          </select>-->
+        <!--        </div>-->
       </div>
 
       <div>

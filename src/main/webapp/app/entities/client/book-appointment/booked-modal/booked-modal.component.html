@@ -16,14 +16,14 @@
           <div class="avatar">{{ getInitials(booked.employee?.name) }}</div>
           <div class="employee-info">
             <h4>{{ booked.employee?.name }}</h4>
-            <p class="specialization">{{ booked.employee?.specialization | translate }}</p>
+            <p class="specialization">{{ booked.employee?.specialization }}</p>
           </div>
         </div>
       </div>
 
       <!-- Main Content -->
       <form name="editForm" [formGroup]="editForm" (ngSubmit)="confirmBooking()" role="form" novalidate>
-        <label class="form-label" jhiTranslate="appointmentApp.appointment.startTime" for="field_startTime">Start Time</label>
+        <label class="form-label" jhiTranslate="appointment-modal-startTime" for="field_startTime">Choose you booking date</label>
         <div class="d-flex">
           <input
             id="field_startTime"

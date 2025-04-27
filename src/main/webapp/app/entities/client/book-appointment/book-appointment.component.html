@@ -55,13 +55,19 @@
     <div *ngIf="appointments?.length; else noAppointments">
       <div class="row">
         <div *ngFor="let appointment of appointments" class="appointment-card card shadow-sm m-2 p-0">
-          <img
-            class="card-img-top rounded-top object-fit-cover"
-            [src]="'../../../../content/images/' + appointment.serviceProvider.type + '.jpg'"
-            alt="Service Provider Image"
-            style="height: 150px; width: 100%"
-          />
-          <img [src]="getImageStable(appointment.serviceProvider.imageKey)" [alt]="appointment.serviceProvider.name" />
+          @if (!appointment?.serviceProvider?.imageKey) {
+            <img
+              class="card-img-top rounded-top object-fit-cover"
+              [src]="'../../../../content/images/' + appointment.serviceProvider.type + '.jpg'"
+              alt="Service Provider Image"
+              style="height: 150px; width: 100%"
+            />
+          } @else {
+            <ng-container *ngIf="appointment?.serviceProvider?.imageKey as imageKey">
+              {{ getImageStable(imageKey) }}
+              <img [src]="imageSrcMap[imageKey]" *ngIf="imageSrcMap[imageKey]" />
+            </ng-container>
+          }
           <div class="card-body">
             <h5 class="card-title text-primary mb-1">{{ appointment.serviceProvider?.name || 'Unknown Provider' }}</h5>
             <p class="text-muted mb-2">{{ appointment.serviceProvider?.type | translate }}</p>

@@ -127,27 +127,27 @@ export class EmployeeUpdateComponent implements OnInit {
       )
       .subscribe((serviceProviders: IServiceProvider[]) => (this.serviceProvidersSharedCollection = serviceProviders));
 
-    this.serviceForCustomerService
-      .query()
-      .pipe(map((res: HttpResponse<IServiceForCustomer[]>) => res.body ?? []))
-      .pipe(
-        map((serviceForCustomers: IServiceForCustomer[]) =>
-          this.serviceForCustomerService.addServiceForCustomerToCollectionIfMissing<IServiceForCustomer>(
-            serviceForCustomers,
-            ...(this.employee?.servicesForCustomers ?? []),
-          ),
-        ),
-      )
-      .subscribe((serviceForCustomers: IServiceForCustomer[]) => (this.serviceForCustomersSharedCollection = serviceForCustomers));
+    // this.serviceForCustomerService
+    //   .query()
+    //   .pipe(map((res: HttpResponse<IServiceForCustomer[]>) => res.body ?? []))
+    //   .pipe(
+    //     map((serviceForCustomers: IServiceForCustomer[]) =>
+    //       this.serviceForCustomerService.addServiceForCustomerToCollectionIfMissing<IServiceForCustomer>(
+    //         serviceForCustomers,
+    //         ...(this.employee?.servicesForCustomers ?? []),
+    //       ),
+    //     ),
+    //   )
+    //   .subscribe((serviceForCustomers: IServiceForCustomer[]) => (this.serviceForCustomersSharedCollection = serviceForCustomers));
 
-    this.serviceService
-      .query()
-      .pipe(map((res: HttpResponse<IService[]>) => res.body ?? []))
-      .pipe(
-        map((services: IService[]) =>
-          this.serviceService.addServiceToCollectionIfMissing<IService>(services, ...(this.employee?.services ?? [])),
-        ),
-      )
-      .subscribe((services: IService[]) => (this.servicesSharedCollection = services));
+    //   this.serviceService
+    //     .query()
+    //     .pipe(map((res: HttpResponse<IService[]>) => res.body ?? []))
+    //     .pipe(
+    //       map((services: IService[]) =>
+    //         this.serviceService.addServiceToCollectionIfMissing<IService>(services, ...(this.employee?.services ?? [])),
+    //       ),
+    //     )
+    //     .subscribe((services: IService[]) => (this.servicesSharedCollection = services));
   }
 }
