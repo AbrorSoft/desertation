@@ -34,6 +34,7 @@
         "logs": "Loglar",
         "apidocs": "API",
         "database": "Ma`lumotlar bazasi",
+        "adminAuthority": "Boshqarish",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
       "language": "Til"

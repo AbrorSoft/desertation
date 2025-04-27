@@ -34,6 +34,7 @@
         "logs": "Логи",
         "apidocs": "API",
         "database": "База данных",
+        "adminAuthority": "Полномочий",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
       "language": "Язык"
