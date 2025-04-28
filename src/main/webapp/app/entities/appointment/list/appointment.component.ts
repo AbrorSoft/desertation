@@ -65,7 +65,11 @@ export class AppointmentComponent implements OnInit {
 
     this.filters.filterChanges.subscribe(filterOptions => this.handleNavigation(1, this.sortState(), filterOptions));
   }
-
+  showActiveAppointment() {
+    this.appointmentService.query({ 'status.equals': 'ACTIVE' }).subscribe(data => {
+      this.appointments = data.body || [];
+    });
+  }
   delete(appointment: IAppointment): void {
     const modalRef = this.modalService.open(AppointmentDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.appointment = appointment;

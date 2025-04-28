@@ -6,7 +6,8 @@
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Appointment",
         "createOrEditLabel": "Create or edit a Appointment",
-        "notFound": "No Appointments found"
+        "notFound": "No Appointments found",
+        "show": "Show Appointment Cards"
       },
       "created": "A new Appointment is created with identifier {{ param }}",
       "updated": "A Appointment is updated with identifier {{ param }}",

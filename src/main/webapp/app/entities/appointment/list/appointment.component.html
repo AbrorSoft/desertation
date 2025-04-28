@@ -11,11 +11,20 @@
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-appointment"
+        class="btn btn-primary jh-create-entity create-appointment me-2"
         [routerLink]="['/appointment/new']"
       >
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="appointmentApp.appointment.home.createLabel">Create a new Appointment</span>
+      </button>
+      <button
+        style="background: #00c896; color: white"
+        data-cy="entityCreateButton"
+        class="btn jh-create-entity create-appointment"
+        (click)="showActiveAppointment()"
+      >
+        <fa-icon icon="save"></fa-icon>
+        <span jhiTranslate="appointmentApp.appointment.home.show">Show Appointment Cards </span>
       </button>
     </div>
   </h2>
@@ -112,7 +121,9 @@
               <td>
                 @if (appointment.serviceProvider) {
                   <div>
-                    <a [routerLink]="['/service-provider', appointment.serviceProvider.id, 'view']">{{ appointment.serviceProvider.name }}</a>
+                    <a [routerLink]="['/service-provider', appointment.serviceProvider.id, 'view']">{{
+                      appointment.serviceProvider.name
+                    }}</a>
                   </div>
                 }
               </td>
