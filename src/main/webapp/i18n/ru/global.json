@@ -8,12 +8,12 @@
       "entities": {
         "main": "Сущности",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "serviceProvider": "Service Provider",
-        "employee": "Employee",
-        "room": "Room",
-        "workingHours": "Working Hours",
-        "appointment": "Appointment",
-        "serviceForCustomer": "Service For Customer"
+        "serviceProvider": "Поставщик услуг",
+        "employee": "Сотрудник",
+        "room": "Комната",
+        "workingHours": "Рабочие часы",
+        "appointment": "Запись",
+        "serviceForCustomer": "Услуга для клиента"
       },
       "account": {
         "main": "Профиль",

@@ -2,26 +2,26 @@
   "appointmentApp": {
     "workingHours": {
       "home": {
-        "title": "Working Hours",
+        "title": "Рабочие часы",
         "refreshListLabel": "Обновить список",
-        "createLabel": "Создать новый Working Hours",
-        "createOrEditLabel": "Создать или отредактировать Working Hours",
-        "notFound": "Working Hours не найдено"
+        "createLabel": "Создать новые рабочие часы",
+        "createOrEditLabel": "Создать или отредактировать рабочие часы",
+        "notFound": "Рабочие часы не найдены"
       },
-      "created": "Новый Working Hours создан с идентификатором {{ param }}",
-      "updated": "Working Hours обновлен с идентификатором {{ param }}",
-      "deleted": "Working Hours удален с идентификатором {{ param }}",
+      "created": "Новые рабочие часы созданы с идентификатором {{ param }}",
+      "updated": "Рабочие часы обновлены с идентификатором {{ param }}",
+      "deleted": "Рабочие часы удалены с идентификатором {{ param }}",
       "delete": {
-        "question": "Вы уверены что хотите удалить Working Hours {{ id }}?"
+        "question": "Вы уверены, что хотите удалить рабочие часы {{ id }}?"
       },
       "detail": {
-        "title": "Working Hours"
+        "title": "Рабочие часы"
       },
-      "id": "Id",
-      "dayOfWeek": "Day Of Week",
-      "startTime": "Start Time",
-      "endTime": "End Time",
-      "employee": "Employee"
+      "id": "ID",
+      "dayOfWeek": "День недели",
+      "startTime": "Время начала",
+      "endTime": "Время окончания",
+      "employee": "Сотрудник"
     }
   }
 }

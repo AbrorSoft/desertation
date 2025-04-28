@@ -2,26 +2,26 @@
   "appointmentApp": {
     "serviceProvider": {
       "home": {
-        "title": "Service Providers",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Yangi Service Provider qo`shish",
-        "createOrEditLabel": "Service Providerni tahrirlash",
-        "notFound": "No Service Providers found"
+        "title": "Xizmat ko'rsatuvchilar",
+        "refreshListLabel": "Ro'yxatni yangilash",
+        "createLabel": "Yangi xizmat ko'rsatuvchi yaratish",
+        "createOrEditLabel": "Xizmat ko'rsatuvchini yaratish yoki tahrirlash",
+        "notFound": "Xizmat ko'rsatuvchilar topilmadi"
       },
-      "created": "Service Provider {{ param }} bilan qo`shildi",
-      "updated": "{{ param }}- Service Provider saqlandi",
-      "deleted": "{{ param }}- Service Provider o`chirildi",
+      "created": "Yangi xizmat ko'rsatuvchi {{ param }} identifikatori bilan yaratildi",
+      "updated": "Xizmat ko'rsatuvchi {{ param }} identifikatori bilan yangilandi",
+      "deleted": "Xizmat ko'rsatuvchi {{ param }} identifikatori bilan o'chirildi",
       "delete": {
-        "question": "{{ id }}- Service Providerni o`chirmoqchimisiz? "
+        "question": "Xizmat ko'rsatuvchini {{ id }} o'chirmoqchimisiz?"
       },
       "detail": {
-        "title": "Service Provider"
+        "title": "Xizmat ko'rsatuvchi"
       },
-      "id": "Id",
-      "name": "Name",
-      "type": "Type",
-      "address": "Address",
-      "contactInfo": "Contact Info"
+      "id": "ID",
+      "name": "Nomi",
+      "type": "Turi",
+      "address": "Manzil",
+      "contactInfo": "Kontakt ma'lumotlari"
     }
   }
 }

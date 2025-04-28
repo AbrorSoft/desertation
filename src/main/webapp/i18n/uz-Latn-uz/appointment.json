@@ -2,30 +2,30 @@
   "appointmentApp": {
     "appointment": {
       "home": {
-        "title": "Appointments",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Yangi Appointment qo`shish",
-        "createOrEditLabel": "Appointmentni tahrirlash",
-        "notFound": "No Appointments found"
+        "title": "Uchrashuvlar",
+        "refreshListLabel": "Ro'yxatni yangilash",
+        "createLabel": "Yangi uchrashuv yaratish",
+        "createOrEditLabel": "Uchrashuv yaratish yoki tahrirlash",
+        "notFound": "Uchrashuvlar topilmadi"
       },
-      "created": "Appointment {{ param }} bilan qo`shildi",
-      "updated": "{{ param }}- Appointment saqlandi",
-      "deleted": "{{ param }}- Appointment o`chirildi",
+      "created": "Yangi uchrashuv {{ param }} identifikatori bilan yaratildi",
+      "updated": "Uchrashuv {{ param }} identifikatori bilan yangilandi",
+      "deleted": "Uchrashuv {{ param }} identifikatori bilan o'chirildi",
       "delete": {
-        "question": "{{ id }}- Appointmentni o`chirmoqchimisiz? "
+        "question": "Uchrashuvni {{ id }} o'chirmoqchimisiz?"
       },
       "detail": {
-        "title": "Appointment"
+        "title": "Uchrashuv"
       },
-      "id": "Id",
-      "date": "Date",
-      "startTime": "Start Time",
-      "endTime": "End Time",
-      "status": "Status",
-      "serviceProvider": "Service Provider",
-      "employee": "Employee",
-      "serviceForCustomer": "Service For Customer",
-      "room": "Room"
+      "id": "ID",
+      "date": "Sana",
+      "startTime": "Boshlanish vaqti",
+      "endTime": "Tugash vaqti",
+      "status": "Holat",
+      "serviceProvider": "Xizmat ko'rsatuvchi",
+      "employee": "Xodim",
+      "serviceForCustomer": "Mijoz uchun xizmat",
+      "room": "Xona"
     }
   }
 }

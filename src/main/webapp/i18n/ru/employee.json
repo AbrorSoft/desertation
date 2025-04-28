@@ -2,27 +2,27 @@
   "appointmentApp": {
     "employee": {
       "home": {
-        "title": "Employees",
+        "title": "Сотрудники",
         "refreshListLabel": "Обновить список",
-        "createLabel": "Создать новый Employee",
-        "createOrEditLabel": "Создать или отредактировать Employee",
-        "notFound": "Employees не найдено"
+        "createLabel": "Создать нового сотрудника",
+        "createOrEditLabel": "Создать или отредактировать сотрудника",
+        "notFound": "Сотрудники не найдены"
       },
-      "created": "Новый Employee создан с идентификатором {{ param }}",
-      "updated": "Employee обновлен с идентификатором {{ param }}",
-      "deleted": "Employee удален с идентификатором {{ param }}",
+      "created": "Новый сотрудник создан с идентификатором {{ param }}",
+      "updated": "Сотрудник обновлен с идентификатором {{ param }}",
+      "deleted": "Сотрудник удален с идентификатором {{ param }}",
       "delete": {
-        "question": "Вы уверены что хотите удалить Employee {{ id }}?"
+        "question": "Вы уверены, что хотите удалить сотрудника {{ id }}?"
       },
       "detail": {
-        "title": "Employee"
+        "title": "Сотрудник"
       },
-      "id": "Id",
-      "name": "Name",
-      "specialization": "Specialization",
-      "serviceProvider": "Service Provider",
-      "servicesForCustomer": "Services For Customer",
-      "services": "Services"
+      "id": "ID",
+      "name": "Имя",
+      "specialization": "Специализация",
+      "serviceProvider": "Поставщик услуг",
+      "servicesForCustomer": "Услуги для клиентов",
+      "services": "Услуги"
     }
   }
 }

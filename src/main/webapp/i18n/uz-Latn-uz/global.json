@@ -8,12 +8,12 @@
       "entities": {
         "main": "Ma`lumotlar",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "serviceProvider": "Service Provider",
-        "employee": "Employee",
-        "room": "Room",
-        "workingHours": "Working Hours",
-        "appointment": "Appointment",
-        "serviceForCustomer": "Service For Customer"
+        "serviceProvider": "Xizmat ko‘rsatuvchi",
+        "employee": "Xodim",
+        "room": "Xona",
+        "workingHours": "Ish vaqti",
+        "appointment": "Uchrashuv",
+        "serviceForCustomer": "Mijoz uchun xizmat"
       },
       "account": {
         "main": "Profil",

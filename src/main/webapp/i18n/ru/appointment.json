@@ -2,30 +2,30 @@
   "appointmentApp": {
     "appointment": {
       "home": {
-        "title": "Appointments",
+        "title": "Записи",
         "refreshListLabel": "Обновить список",
-        "createLabel": "Создать новый Appointment",
-        "createOrEditLabel": "Создать или отредактировать Appointment",
-        "notFound": "Appointments не найдено"
+        "createLabel": "Создать новую запись",
+        "createOrEditLabel": "Создать или отредактировать запись",
+        "notFound": "Записи не найдены"
       },
-      "created": "Новый Appointment создан с идентификатором {{ param }}",
-      "updated": "Appointment обновлен с идентификатором {{ param }}",
-      "deleted": "Appointment удален с идентификатором {{ param }}",
+      "created": "Новая запись создана с идентификатором {{ param }}",
+      "updated": "Запись обновлена с идентификатором {{ param }}",
+      "deleted": "Запись удалена с идентификатором {{ param }}",
       "delete": {
-        "question": "Вы уверены что хотите удалить Appointment {{ id }}?"
+        "question": "Вы уверены, что хотите удалить запись {{ id }}?"
       },
       "detail": {
-        "title": "Appointment"
+        "title": "Запись"
       },
-      "id": "Id",
-      "date": "Date",
-      "startTime": "Start Time",
-      "endTime": "End Time",
-      "status": "Status",
-      "serviceProvider": "Service Provider",
-      "employee": "Employee",
-      "serviceForCustomer": "Service For Customer",
-      "room": "Room"
+      "id": "ID",
+      "date": "Дата",
+      "startTime": "Время начала",
+      "endTime": "Время окончания",
+      "status": "Статус",
+      "serviceProvider": "Поставщик услуг",
+      "employee": "Сотрудник",
+      "serviceForCustomer": "Услуга для клиента",
+      "room": "Комната"
     }
   }
 }

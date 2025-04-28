@@ -2,26 +2,26 @@
   "appointmentApp": {
     "serviceProvider": {
       "home": {
-        "title": "Service Providers",
+        "title": "Поставщики услуг",
         "refreshListLabel": "Обновить список",
-        "createLabel": "Создать новый Service Provider",
-        "createOrEditLabel": "Создать или отредактировать Service Provider",
-        "notFound": "Service Providers не найдено"
+        "createLabel": "Создать нового поставщика услуг",
+        "createOrEditLabel": "Создать или отредактировать поставщика услуг",
+        "notFound": "Поставщики услуг не найдены"
       },
-      "created": "Новый Service Provider создан с идентификатором {{ param }}",
-      "updated": "Service Provider обновлен с идентификатором {{ param }}",
-      "deleted": "Service Provider удален с идентификатором {{ param }}",
+      "created": "Новый поставщик услуг создан с идентификатором {{ param }}",
+      "updated": "Поставщик услуг обновлен с идентификатором {{ param }}",
+      "deleted": "Поставщик услуг удален с идентификатором {{ param }}",
       "delete": {
-        "question": "Вы уверены что хотите удалить Service Provider {{ id }}?"
+        "question": "Вы уверены, что хотите удалить поставщика услуг {{ id }}?"
       },
       "detail": {
-        "title": "Service Provider"
+        "title": "Поставщик услуг"
       },
-      "id": "Id",
-      "name": "Name",
-      "type": "Type",
-      "address": "Address",
-      "contactInfo": "Contact Info"
+      "id": "ID",
+      "name": "Название",
+      "type": "Тип",
+      "address": "Адрес",
+      "contactInfo": "Контактная информация"
     }
   }
 }

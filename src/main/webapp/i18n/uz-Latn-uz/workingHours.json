@@ -2,26 +2,26 @@
   "appointmentApp": {
     "workingHours": {
       "home": {
-        "title": "Working Hours",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Yangi Working Hours qo`shish",
-        "createOrEditLabel": "Working Hoursni tahrirlash",
-        "notFound": "No Working Hours found"
+        "title": "Ish soatlari",
+        "refreshListLabel": "Ro'yxatni yangilash",
+        "createLabel": "Yangi ish soatlarini yaratish",
+        "createOrEditLabel": "Ish soatlarini yaratish yoki tahrirlash",
+        "notFound": "Ish soatlari topilmadi"
       },
-      "created": "Working Hours {{ param }} bilan qo`shildi",
-      "updated": "{{ param }}- Working Hours saqlandi",
-      "deleted": "{{ param }}- Working Hours o`chirildi",
+      "created": "Yangi ish soatlari {{ param }} identifikatori bilan yaratildi",
+      "updated": "Ish soatlari {{ param }} identifikatori bilan yangilandi",
+      "deleted": "Ish soatlari {{ param }} identifikatori bilan o'chirildi",
       "delete": {
-        "question": "{{ id }}- Working Hoursni o`chirmoqchimisiz? "
+        "question": "Ish soatlarini {{ id }} o'chirmoqchimisiz?"
       },
       "detail": {
-        "title": "Working Hours"
+        "title": "Ish soatlari"
       },
-      "id": "Id",
-      "dayOfWeek": "Day Of Week",
-      "startTime": "Start Time",
-      "endTime": "End Time",
-      "employee": "Employee"
+      "id": "ID",
+      "dayOfWeek": "Hafta kuni",
+      "startTime": "Boshlanish vaqti",
+      "endTime": "Tugash vaqti",
+      "employee": "Xodim"
     }
   }
 }

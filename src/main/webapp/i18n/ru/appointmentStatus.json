@@ -2,9 +2,10 @@
   "appointmentApp": {
     "AppointmentStatus": {
       "null": "",
-      "BOOKED": "BOOKED",
-      "COMPLETED": "COMPLETED",
-      "CANCELLED": "CANCELLED"
+      "BOOKED": "Забронировано",
+      "COMPLETED": "Завершено",
+      "CANCELLED": "Отменено",
+      "ACTIVE": "Активно"
     }
   }
 }

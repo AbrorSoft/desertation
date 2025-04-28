@@ -2,27 +2,27 @@
   "appointmentApp": {
     "employee": {
       "home": {
-        "title": "Employees",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Yangi Employee qo`shish",
-        "createOrEditLabel": "Employeeni tahrirlash",
-        "notFound": "No Employees found"
+        "title": "Xodimlar",
+        "refreshListLabel": "Ro'yxatni yangilash",
+        "createLabel": "Yangi xodim yaratish",
+        "createOrEditLabel": "Xodim yaratish yoki tahrirlash",
+        "notFound": "Xodimlar topilmadi"
       },
-      "created": "Employee {{ param }} bilan qo`shildi",
-      "updated": "{{ param }}- Employee saqlandi",
-      "deleted": "{{ param }}- Employee o`chirildi",
+      "created": "Yangi xodim {{ param }} identifikatori bilan yaratildi",
+      "updated": "Xodim {{ param }} identifikatori bilan yangilandi",
+      "deleted": "Xodim {{ param }} identifikatori bilan o'chirildi",
       "delete": {
-        "question": "{{ id }}- Employeeni o`chirmoqchimisiz? "
+        "question": "Xodimni {{ id }} o'chirmoqchimisiz?"
       },
       "detail": {
-        "title": "Employee"
+        "title": "Xodim"
       },
-      "id": "Id",
-      "name": "Name",
-      "specialization": "Specialization",
-      "serviceProvider": "Service Provider",
-      "servicesForCustomer": "Services For Customer",
-      "services": "Services"
+      "id": "ID",
+      "name": "Ism",
+      "specialization": "Mutaxassislik",
+      "serviceProvider": "Xizmat ko'rsatuvchi",
+      "servicesForCustomer": "Mijozlar uchun xizmatlar",
+      "services": "Xizmatlar"
     }
   }
 }

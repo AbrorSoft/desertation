@@ -2,25 +2,25 @@
   "appointmentApp": {
     "room": {
       "home": {
-        "title": "Rooms",
+        "title": "Комнаты",
         "refreshListLabel": "Обновить список",
-        "createLabel": "Создать новый Room",
-        "createOrEditLabel": "Создать или отредактировать Room",
-        "notFound": "Rooms не найдено"
+        "createLabel": "Создать новую комнату",
+        "createOrEditLabel": "Создать или отредактировать комнату",
+        "notFound": "Комнаты не найдены"
       },
-      "created": "Новый Room создан с идентификатором {{ param }}",
-      "updated": "Room обновлен с идентификатором {{ param }}",
-      "deleted": "Room удален с идентификатором {{ param }}",
+      "created": "Новая комната создана с идентификатором {{ param }}",
+      "updated": "Комната обновлена с идентификатором {{ param }}",
+      "deleted": "Комната удалена с идентификатором {{ param }}",
       "delete": {
-        "question": "Вы уверены что хотите удалить Room {{ id }}?"
+        "question": "Вы уверены, что хотите удалить комнату {{ id }}?"
       },
       "detail": {
-        "title": "Room"
+        "title": "Комната"
       },
-      "id": "Id",
-      "roomNumber": "Room Number",
-      "description": "Description",
-      "serviceProvider": "Service Provider"
+      "id": "ID",
+      "roomNumber": "Номер комнаты",
+      "description": "Описание",
+      "serviceProvider": "Поставщик услуг"
     }
   }
 }

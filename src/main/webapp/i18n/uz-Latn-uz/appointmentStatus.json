@@ -2,9 +2,10 @@
   "appointmentApp": {
     "AppointmentStatus": {
       "null": "",
-      "BOOKED": "BOOKED",
-      "COMPLETED": "COMPLETED",
-      "CANCELLED": "CANCELLED"
+      "BOOKED": "Band qilingan",
+      "COMPLETED": "Tugallangan",
+      "CANCELLED": "Bekor qilingan",
+      "ACTIVE": "Faol"
     }
   }
 }

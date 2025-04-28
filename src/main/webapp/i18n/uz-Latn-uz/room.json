@@ -2,25 +2,25 @@
   "appointmentApp": {
     "room": {
       "home": {
-        "title": "Rooms",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Yangi Room qo`shish",
-        "createOrEditLabel": "Roomni tahrirlash",
-        "notFound": "No Rooms found"
+        "title": "Xonalar",
+        "refreshListLabel": "Ro'yxatni yangilash",
+        "createLabel": "Yangi xona yaratish",
+        "createOrEditLabel": "Xona yaratish yoki tahrirlash",
+        "notFound": "Xonalar topilmadi"
       },
-      "created": "Room {{ param }} bilan qo`shildi",
-      "updated": "{{ param }}- Room saqlandi",
-      "deleted": "{{ param }}- Room o`chirildi",
+      "created": "Yangi xona {{ param }} identifikatori bilan yaratildi",
+      "updated": "Xona {{ param }} identifikatori bilan yangilandi",
+      "deleted": "Xona {{ param }} identifikatori bilan o'chirildi",
       "delete": {
-        "question": "{{ id }}- Roomni o`chirmoqchimisiz? "
+        "question": "Xonani {{ id }} o'chirmoqchimisiz?"
       },
       "detail": {
-        "title": "Room"
+        "title": "Xona"
       },
-      "id": "Id",
-      "roomNumber": "Room Number",
-      "description": "Description",
-      "serviceProvider": "Service Provider"
+      "id": "ID",
+      "roomNumber": "Xona raqami",
+      "description": "Tavsif",
+      "serviceProvider": "Xizmat ko'rsatuvchi"
     }
   }
 }
