@@ -41,5 +41,8 @@
   "appointment-service-cancel": "Bekor qilish",
   "appointment-service-empty": "Hech qanday qabul mavjud emas.",
   "appointment-service-card-title": "Ma'lumot",
-  "appointment-service-card-sub-title": "Qabul tafsilotlari"
+  "appointment-service-card-sub-title": "Qabul tafsilotlari",
+  "book-appointment-modal-ask": "Uchrashuvingizni bekor qilmoqchimisiz?",
+  "appointment-service-confirm": "Bandlovni tasdiqlash",
+  "appointment-service-confirm-canceling": "Bekor qilishni tasdiqlash"
 }

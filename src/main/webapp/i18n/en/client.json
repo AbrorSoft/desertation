@@ -41,5 +41,8 @@
   "appointment-service-cancel": "Cancel",
   "appointment-service-empty": "No appointments available.",
   "appointment-service-card-title": "Information",
-  "appointment-service-card-sub-title": "Appointment Details"
+  "appointment-service-card-sub-title": "Appointment Details",
+  "book-appointment-modal-ask": "Do you want to cancel your appointment",
+  "appointment-service-confirm": "Confirm Booking",
+  "appointment-service-confirm-canceling": "Confirm Canceling"
 }

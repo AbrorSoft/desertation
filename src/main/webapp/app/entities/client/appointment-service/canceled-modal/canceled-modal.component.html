@@ -6,26 +6,13 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h2 jhiTranslate="book-appointment-modal-title">Booking Details</h2>
-        <div class="status-badge" [ngClass]="appointment.status.toLowerCase()">{{ appointment.status | translate }}</div>
+        <h5 jhiTranslate="book-appointment-modal-ask">Do you want to cancel your appointment?</h5>
       </div>
 
-      <!-- Employee Details -->
-      <div class="info-section with-divider">
-        <div class="employee-card">
-          <div class="avatar">{{ appointment.employee?.name }}</div>
-          <div class="employee-info">
-            <h4>{{ appointment.employee?.name }}</h4>
-            <p class="specialization">{{ appointment.employee?.specialization }}</p>
-          </div>
-        </div>
-      </div>
-
-      <h3>Do you want to cancel your appointment</h3>
-      <!-- Actions -->
+      <!-- Modal Actions -->
       <div class="modal-actions">
-        <button class="btn secondary" (click)="cancel()">Cancel</button>
-        <button class="btn primary" (click)="confirmBooking()">Confirm Booking</button>
+        <button class="btn secondary" jhiTranslate="appointment-service-cancel" (click)="cancel()">Cancel</button>
+        <button class="btn primary" jhiTranslate="appointment-service-confirm-canceling" (click)="confirmBooking()">Confirm Booking</button>
       </div>
     </div>
   </div>

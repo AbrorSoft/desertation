@@ -41,5 +41,8 @@
   "appointment-service-cancel": "Отменить",
   "appointment-service-empty": "Нет доступных приемов.",
   "appointment-service-card-title": "Информация",
-  "appointment-service-card-sub-title": "Детали приема"
+  "appointment-service-card-sub-title": "Детали приема",
+  "book-appointment-modal-ask": "Вы хотите отменить свою запись?",
+  "appointment-service-confirm": "Подтвердить бронирование",
+  "appointment-service-confirm-canceling": "Подтвердить отмену"
 }
