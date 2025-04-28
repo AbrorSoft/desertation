@@ -260,7 +260,12 @@
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
             @if (!account()?.imageUrl) {
               <span>
-                <fa-icon icon="users-cog" [fixedWidth]="true"></fa-icon> <span jhiTranslate="global.menu.account.main">Account</span>
+                <fa-icon icon="users-cog" [fixedWidth]="true"></fa-icon>
+                @if (account()?.login) {
+                  {{ upperCaseWord(account()?.login) }}
+                } @else {
+                  <span jhiTranslate="global.menu.account.main">Account</span>
+                }
               </span>
             } @else {
               <span class="d-flex align-items-center">

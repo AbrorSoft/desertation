@@ -13,7 +13,7 @@ body {
 
 .custom-container {
   width: 100%; // Full viewport width
-  height: 100vh; // Full viewport height
+  //height: 100vh; // Full viewport height
   margin: 2% 0 0 0;
   padding: 0;
   display: flex;
@@ -57,7 +57,7 @@ body {
 .sub-text {
   font-size: 1.2rem; // Slightly larger
   color: $secondary-text-color;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .book-appointment-btn {

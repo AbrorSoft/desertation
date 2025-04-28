@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -63,7 +63,9 @@ export default class NavbarComponent implements OnInit {
   login(): void {
     this.router.navigate(['/login']);
   }
-
+  upperCaseWord(word: string | null | undefined): string {
+    return word ? word.charAt(0).toUpperCase() + word.slice(1) : '';
+  }
   logout(): void {
     this.collapseNavbar();
     this.loginService.logout();
