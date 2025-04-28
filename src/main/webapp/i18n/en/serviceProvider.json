@@ -21,7 +21,8 @@
       "name": "Name",
       "type": "Type",
       "address": "Address",
-      "contactInfo": "Contact Info"
+      "contactInfo": "Contact Info",
+      "imageKey": "Image"
     }
   }
 }

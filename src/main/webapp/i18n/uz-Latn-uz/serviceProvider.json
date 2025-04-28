@@ -21,7 +21,8 @@
       "name": "Nomi",
       "type": "Turi",
       "address": "Manzil",
-      "contactInfo": "Kontakt ma'lumotlari"
+      "contactInfo": "Kontakt ma'lumotlari",
+      "imageKey": "Rasm"
     }
   }
 }
