@@ -52,9 +52,7 @@ export class ServiceProviderFormService {
       address: new FormControl(serviceProviderRawValue.address),
       contactInfo: new FormControl(serviceProviderRawValue.contactInfo),
       imageKey: new FormControl(serviceProviderRawValue.imageKey),
-      imageFile: new FormControl(serviceProviderRawValue.imageFile, {
-        validators: [Validators.required],
-      }),
+      imageFile: new FormControl(serviceProviderRawValue.imageFile, {}),
     });
   }
 

@@ -25,7 +25,8 @@
       "serviceProvider": "Поставщик услуг",
       "employee": "Сотрудник",
       "serviceForCustomer": "Услуга для клиента",
-      "room": "Комната"
+      "room": "Комната",
+      "user": "Пользователь"
     }
   }
 }

@@ -98,11 +98,22 @@ export class BookedModalComponent {
 
   confirmBooking() {
     let startDate: any = this.editForm.get('startTime')?.value;
+
+    let endLocal = dayjs(startDate).add(180, 'minute').format('YYYY-MM-DD[T]HH:mm');
     if (!startDate || startDate.length > 16) {
       console.log('FALSE');
     } else {
       startDate = dayjs(startDate).toISOString();
-      this.booked = { ...this.booked, startTime: startDate, status: 'BOOKED', id: null, user: this.accountService.userIdentity() };
+      endLocal = dayjs(endLocal).toISOString();
+      console.log({ startDate, endLocal });
+      this.booked = {
+        ...this.booked,
+        startTime: startDate,
+        endDate: endLocal,
+        status: 'BOOKED',
+        id: null,
+        user: this.accountService.userIdentity(),
+      };
       this.http.post(this.appointmentService.resourceUrl, this.booked).subscribe();
       this.cancel();
     }

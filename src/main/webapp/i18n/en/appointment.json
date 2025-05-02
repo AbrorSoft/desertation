@@ -26,7 +26,8 @@
       "serviceProvider": "Service Provider",
       "employee": "Employee",
       "serviceForCustomer": "Service For Customer",
-      "room": "Room"
+      "room": "Room",
+      "user": "User"
     }
   }
 }

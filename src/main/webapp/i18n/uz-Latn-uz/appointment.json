@@ -25,7 +25,8 @@
       "serviceProvider": "Xizmat ko'rsatuvchi",
       "employee": "Xodim",
       "serviceForCustomer": "Mijoz uchun xizmat",
-      "room": "Xona"
+      "room": "Xona",
+      "user": "Foydalanuvchi"
     }
   }
 }

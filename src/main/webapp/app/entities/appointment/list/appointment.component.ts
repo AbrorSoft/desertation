@@ -132,7 +132,10 @@ export class AppointmentComponent implements OnInit {
     filters.filterOptions.forEach(filterOption => {
       queryObject[filterOption.name] = filterOption.values;
     });
-    return this.appointmentService.query(queryObject).pipe(tap(() => (this.isLoading = false)));
+    console.log(queryObject, 'queryObject');
+    return this.appointmentService
+      .query({ ...queryObject, 'status.in': ['BOOKED', 'CANCELLED', 'COMPLETED'] })
+      .pipe(tap(() => (this.isLoading = false)));
   }
 
   protected handleNavigation(page: number, sortState: SortState, filterOptions?: IFilterOption[]): void {
